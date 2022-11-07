@@ -17,5 +17,5 @@ local.properties
 
 # React Native
 node_modules
-Package-lock.json
+package-lock.json
 
