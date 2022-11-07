@@ -93,3 +93,4 @@ if(condition)
 }
 ```
 - tussen verschillende methode declaraties 1 witregel
+- geen dode code (let op ongebruikte imports)
