@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./screens/Home";
-import RoutePage from "./screens/RoutePage";
+import RouteTypePage from "./screens/RouteTypePage";
 import InformationPage from "./screens/InformationPage";
 import OptionPage from "./screens/OptionPage";
 import RouteList from "./screens/RouteList";
@@ -12,10 +12,22 @@ const Tab = createBottomTabNavigator();
 
 export const BaseNavigator = () => (
   <Tab.Navigator>
-    <Tab.Screen name="Home" component={Home} />
-    <Tab.Screen name="Route" component={RoutePage} />
-    <Tab.Screen name="Information" component={InformationPage} />
-    <Tab.Screen name="Option" component={OptionPage} />
+    <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
+    <Tab.Screen
+      name="Route"
+      component={RouteTypePage}
+      options={{ headerShown: false }}
+    />
+    <Tab.Screen
+      name="Information"
+      component={InformationPage}
+      options={{ headerShown: false }}
+    />
+    <Tab.Screen
+      name="Option"
+      component={OptionPage}
+      options={{ headerShown: false }}
+    />
   </Tab.Navigator>
 );
 
