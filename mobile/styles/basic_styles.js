@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+    /*Main layout*/
     layout: {
         flex: 1,
         justifyContent: "center",
@@ -9,6 +10,7 @@ export const styles = StyleSheet.create({
         margin: 0,
         padding: 0,
     },
+    /*Main innerlayout*/
     innerLayout: {
         flex: 1,
         justifyContent: "center",
@@ -18,6 +20,7 @@ export const styles = StyleSheet.create({
         padding: 0,
         width: "95%",
     },
+    /**Main header and titles */
     headerPage: {
         flex: 1,
         alignItems: "center",

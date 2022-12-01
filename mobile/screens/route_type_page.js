@@ -1,8 +1,8 @@
 import { Text, View, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { styles } from "../styles/BasicStyles";
+import { styles } from "../styles/basic_styles";
 
-const RouteTypePage = () => {
+const route_type_page = () => {
     const nav = useNavigation();
 
     return (
@@ -16,4 +16,4 @@ const RouteTypePage = () => {
     );
 };
 
-export default RouteTypePage;
+export default route_type_page;

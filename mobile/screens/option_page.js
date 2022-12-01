@@ -1,7 +1,7 @@
-import { styles } from "../styles/BasicStyles";
+import { styles } from "../styles/basic_styles";
 import { Text, View } from "react-native";
 
-const OptionPage = () => {
+const option_page = () => {
     return (
         <View style={styles.layout}>
             <Text style={styles.title}>Option</Text>
@@ -9,4 +9,4 @@ const OptionPage = () => {
     );
 };
 
-export default OptionPage;
+export default option_page;

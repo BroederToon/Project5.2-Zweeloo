@@ -1,5 +1,5 @@
-import { styles } from "../styles/BasicStyles";
-import { card } from "../styles/RouteCardStyles";
+import { styles } from "../styles/basic_styles";
+import { card } from "../styles/route_card_styles";
 import React, { useEffect, useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
@@ -29,7 +29,7 @@ const getRouteInformation = async () => {
     }
 };
 
-const RouteList = () => {
+const route_list = () => {
     return (
         <View style={styles.layout}>
             <View style={styles.innerLayout}>
@@ -99,4 +99,4 @@ const RouteList = () => {
     );
 };
 
-export default RouteList;
+export default route_list;

@@ -7,7 +7,7 @@
 
 ## Commits
 
--   commits worden in het nederlands geschreven
+-   commits worden in het engels geschreven
 
 # Code
 
@@ -49,8 +49,6 @@ deel de stylesheet op doormiddel van comments
 
 ### Components
 
--   iedere custom component wordt gedefinieerd in een eigen file
--   de file van een custom component heeft dezelfde naam als de custom component
 -   een custom component wordt gedefineerd als function, niet als een class
 
 ```

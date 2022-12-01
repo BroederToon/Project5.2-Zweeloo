@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./screens/Home";
-import RouteTypePage from "./screens/RouteTypePage";
-import InformationPage from "./screens/InformationPage";
-import OptionPage from "./screens/OptionPage";
-import RouteList from "./screens/RouteList";
+import home from "./screens/home";
+import route_type_page from "./screens/route_type_page";
+import information_page from "./screens/information_page";
+import option_page from "./screens/option_page";
+import route_list from "./screens/route_list";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -14,22 +14,22 @@ export const BaseNavigator = () => (
     <Tab.Navigator>
         <Tab.Screen
             name="Home"
-            component={Home}
+            component={home}
             options={{ headerShown: false }}
         />
         <Tab.Screen
             name="Route"
-            component={RouteTypePage}
+            component={route_type_page}
             options={{ headerShown: false }}
         />
         <Tab.Screen
             name="Information"
-            component={InformationPage}
+            component={information_page}
             options={{ headerShown: false }}
         />
         <Tab.Screen
             name="Option"
-            component={OptionPage}
+            component={option_page}
             options={{ headerShown: false }}
         />
     </Tab.Navigator>
@@ -42,7 +42,7 @@ const AppNavigator = () => (
             component={BaseNavigator}
             options={{ headerShown: false }}
         />
-        <Stack.Screen name="RouteList" component={RouteList} />
+        <Stack.Screen name="RouteList" component={route_list} />
     </Stack.Navigator>
 );
 
