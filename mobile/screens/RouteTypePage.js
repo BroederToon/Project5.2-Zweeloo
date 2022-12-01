@@ -1,11 +1,4 @@
-import {
-    StyleSheet,
-    ActivityIndicator,
-    FlatList,
-    Text,
-    View,
-    Button,
-} from "react-native";
+import { Text, View, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/BasicStyles";
 

@@ -5,15 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import {
-    StyleSheet,
-    ActivityIndicator,
-    FlatList,
-    Text,
-    View,
-    Pressable,
-    Image,
-} from "react-native";
+import { Text, View, Pressable, Image } from "react-native";
 
 const getRouteInformation = async () => {
     const [isLoading, setLoading] = useState(true);

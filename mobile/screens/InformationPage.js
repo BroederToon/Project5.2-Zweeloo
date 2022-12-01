@@ -1,11 +1,4 @@
-import {
-    StyleSheet,
-    ActivityIndicator,
-    FlatList,
-    Text,
-    View,
-    Button,
-} from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "../styles/BasicStyles";
 
 const InformationPage = () => {

@@ -1,12 +1,5 @@
 import { styles } from "../styles/BasicStyles";
-import {
-    StyleSheet,
-    ActivityIndicator,
-    FlatList,
-    Text,
-    View,
-    Button,
-} from "react-native";
+import { Text, View } from "react-native";
 
 const OptionPage = () => {
     return (
