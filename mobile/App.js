@@ -11,41 +11,45 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const BaseNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
-    <Tab.Screen
-      name="Route"
-      component={RouteTypePage}
-      options={{ headerShown: false }}
-    />
-    <Tab.Screen
-      name="Information"
-      component={InformationPage}
-      options={{ headerShown: false }}
-    />
-    <Tab.Screen
-      name="Option"
-      component={OptionPage}
-      options={{ headerShown: false }}
-    />
-  </Tab.Navigator>
+    <Tab.Navigator>
+        <Tab.Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+        />
+        <Tab.Screen
+            name="Route"
+            component={RouteTypePage}
+            options={{ headerShown: false }}
+        />
+        <Tab.Screen
+            name="Information"
+            component={InformationPage}
+            options={{ headerShown: false }}
+        />
+        <Tab.Screen
+            name="Option"
+            component={OptionPage}
+            options={{ headerShown: false }}
+        />
+    </Tab.Navigator>
 );
 
 const AppNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen
-      name="BaseNavigator"
-      component={BaseNavigator}
-      options={{ headerShown: false }}
-    />
-    <Stack.Screen name="RouteList" component={RouteList} />
-  </Stack.Navigator>
+    <Stack.Navigator>
+        <Stack.Screen
+            name="BaseNavigator"
+            component={BaseNavigator}
+            options={{ headerShown: false }}
+        />
+        <Stack.Screen name="RouteList" component={RouteList} />
+    </Stack.Navigator>
 );
 
 const App = () => (
-  <NavigationContainer>
-    <AppNavigator />
-  </NavigationContainer>
+    <NavigationContainer>
+        <AppNavigator />
+    </NavigationContainer>
 );
 
 export default App;
