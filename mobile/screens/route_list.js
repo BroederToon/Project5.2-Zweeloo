@@ -29,7 +29,7 @@ const getRouteInformation = async () => {
     }
 };
 
-const route_list = () => {
+const Route_list = () => {
     return (
         <View style={styles.layout}>
             <View style={styles.innerLayout}>
@@ -99,4 +99,4 @@ const route_list = () => {
     );
 };
 
-export default route_list;
+export default Route_list;

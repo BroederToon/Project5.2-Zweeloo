@@ -2,7 +2,7 @@ import { Text, View, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/basic_styles";
 
-const route_type_page = () => {
+const Route_type_page = () => {
     const nav = useNavigation();
 
     return (
@@ -16,4 +16,4 @@ const route_type_page = () => {
     );
 };
 
-export default route_type_page;
+export default Route_type_page;

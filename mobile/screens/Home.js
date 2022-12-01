@@ -1,7 +1,7 @@
 import { styles } from "../styles/basic_styles";
 import { Text, View } from "react-native";
 
-const home = () => {
+const Home = () => {
     return (
         <View style={styles.layout}>
             <Text style={styles.title}>starte</Text>
@@ -9,4 +9,4 @@ const home = () => {
     );
 };
 
-export default home;
+export default Home;
