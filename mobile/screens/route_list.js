@@ -17,6 +17,7 @@ const getRouteInformation = async () => {
             .then((JSON) => setData(JSON))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
+        console.log(data);
     }, []);
     // je leest dit wel uit, maar je moet er nog een keer doorheen
     // aangezien je het uitleest als als array dus nog een keer door heen loopen
