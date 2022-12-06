@@ -7,7 +7,15 @@ import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Text, View, Pressable, Image, ScrollView } from "react-native";
 
-const getRouteInformation = () => {
+const loadScreen = () => {
+    return (
+        <View>
+            <Text style={{ fontSize: 30 }}>isLoading...</Text>
+        </View>
+    );
+};
+
+function getRouteInformation() {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -27,54 +35,80 @@ const getRouteInformation = () => {
             .finally(() => setLoading(false));
     }, [fetchData]);
 
-    return data;
-};
+    if (isLoading) {
+        return loadScreen();
+    } else {
+        if (data.message) {
+            return (
+                <View>
+                    <Text style={{ fontSize: 30 }}>No data to show</Text>
+                </View>
+            );
+        } else {
+            const results = [];
 
-const showingRouteInformation = () => {
-    const results = [];
-
-    getRouteInformation().map((route) => {
-        results.push(
-            <React.Fragment key={route.id}>
-                <View style={card.layout}>
-                    <View style={styles.inlineIconText}>
-                        <MaterialCommunityIcons
-                            name="walk"
-                            size={30}
-                            color="black"
-                        />
-                        <Text style={card.routeTitle}>{route.name}</Text>
-                    </View>
-                    <View style={styles.inlineIconText}>
-                        <Feather name="info" size={30} color="black" />
-                        <Text style={card.routeSubTitle}>{route.extra}</Text>
-                    </View>
-                    <View style={styles.inlineIconText}>
-                        <Entypo name="direction" size={30} color="black" />
-                        <Text style={card.routeSubTitle}>{route.distance}</Text>
-                    </View>
-                    <View style={card.bottomLayout}>
-                        <Text style={card.routeText}>{route.description}</Text>
-                        <View style={styles.inlineIconText}>
-                            <Pressable style={card.cardButton} width="10%">
-                                <Ionicons
-                                    name="information"
-                                    size={24}
+            data.map((route) => {
+                results.push(
+                    <React.Fragment key={route.id}>
+                        <View style={card.layout}>
+                            <View style={styles.inlineIconText}>
+                                <MaterialCommunityIcons
+                                    name="walk"
+                                    size={30}
                                     color="black"
                                 />
-                            </Pressable>
-                            <Pressable style={card.cardButton} width="80%">
-                                <Text>ZIE ROUTE</Text>
-                            </Pressable>
+                                <Text style={card.routeTitle}>
+                                    {route.name}
+                                </Text>
+                            </View>
+                            <View style={styles.inlineIconText}>
+                                <Feather name="info" size={30} color="black" />
+                                <Text style={card.routeSubTitle}>
+                                    {route.extra}
+                                </Text>
+                            </View>
+                            <View style={styles.inlineIconText}>
+                                <Entypo
+                                    name="direction"
+                                    size={30}
+                                    color="black"
+                                />
+                                <Text style={card.routeSubTitle}>
+                                    {route.distance}
+                                </Text>
+                            </View>
+                            <View style={card.bottomLayout}>
+                                <Text style={card.routeText}>
+                                    {route.description}
+                                </Text>
+                                <View style={styles.inlineIconText}>
+                                    <Pressable
+                                        style={card.cardButton}
+                                        width="10%"
+                                    >
+                                        <Ionicons
+                                            name="information"
+                                            size={24}
+                                            color="black"
+                                        />
+                                    </Pressable>
+                                    <Pressable
+                                        style={card.cardButton}
+                                        width="80%"
+                                    >
+                                        <Text>ZIE ROUTE</Text>
+                                    </Pressable>
+                                </View>
+                            </View>
                         </View>
-                    </View>
-                </View>
-            </React.Fragment>
-        );
-    });
+                    </React.Fragment>
+                );
+            });
 
-    return results;
-};
+            return results;
+        }
+    }
+}
 
 const Route_list = () => {
     return (
@@ -89,9 +123,14 @@ const Route_list = () => {
                 </View>
                 <View style={styles.bottomLayout}>
                     <ScrollView
-                        contentContainerStyle={{ padding: 0, margin: 0 }}
+                        contentContainerStyle={{
+                            padding: 0,
+                            margin: 0,
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
                     >
-                        {showingRouteInformation()}
+                        {getRouteInformation()}
                     </ScrollView>
                 </View>
             </View>
