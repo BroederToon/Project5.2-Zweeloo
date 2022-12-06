@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const card = StyleSheet.create({
     /**Main card layout and titles */
     layout: {
-        flex: 2,
+        flex: 1,
         backgroundColor: "#FFEFB9",
         paddingLeft: 30,
         paddingRight: 30,

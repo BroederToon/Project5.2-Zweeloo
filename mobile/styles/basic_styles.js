@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     /*Main layout*/
     layout: {
-        flex: 1,
+        flex: 6,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FFF5D2",
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     },
     /*Main innerlayout*/
     innerLayout: {
-        flex: 1,
+        flex: 6,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FFEFB9",
@@ -20,9 +20,11 @@ export const styles = StyleSheet.create({
         padding: 0,
         width: "95%",
     },
+    upperLayout: {
+        flex: 2,
+    },
     /**Main header and titles */
     headerPage: {
-        flex: 1,
         alignItems: "center",
         margin: 10,
         padding: 0,
@@ -38,5 +40,9 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 0,
         flexDirection: "row",
         alignItems: "center",
+    },
+    /**Bottom layout */
+    bottomLayout: {
+        flex: 4,
     },
 });
