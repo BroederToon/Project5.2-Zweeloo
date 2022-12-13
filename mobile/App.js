@@ -42,7 +42,11 @@ const AppNavigator = () => (
             component={BaseNavigator}
             options={{ headerShown: false }}
         />
-        <Stack.Screen name="RouteList" component={Route_list} />
+        <Stack.Screen
+            name="RouteList"
+            component={Route_list}
+            options={{ headerShown: false }}
+        />
     </Stack.Navigator>
 );
 

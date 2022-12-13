@@ -16,19 +16,23 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FFEFB9",
-        margin: 20,
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        marginBottom: 0,
         padding: 0,
-        width: "95%",
+        width: "90%",
     },
     upperLayout: {
-        flex: 2,
+        padding: 0,
+        margin: 0,
+        flex: 1.5,
     },
     /**Main header and titles */
     headerPage: {
         alignItems: "center",
-        margin: 10,
         padding: 0,
-        width: "95%",
+        width: "100%",
     },
     title: {
         fontSize: 30,
@@ -40,9 +44,11 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 0,
         flexDirection: "row",
         alignItems: "center",
+        position: "relative",
     },
     /**Bottom layout */
     bottomLayout: {
-        flex: 4,
+        flex: 4.5,
+        marginBottom: 10,
     },
 });
