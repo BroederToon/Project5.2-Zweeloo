@@ -1,4 +1,3 @@
-//imports
 import { useEffect, useState } from "react";
 import * as TaskManager from "expo-task-manager";
 import * as Location from "expo-location";
@@ -23,28 +22,18 @@ TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
     }
 });
 
-const getLocationPermission = () => {
-    // Define position state: {latitude: number, longitude: number}
+const locationTracking = () => {
     const [position, setPosition] = useState(null);
     const [latitudePoint, setLatitudePoint] = useState(null);
     const [longitudePoint, setLongitudePoint] = useState(null);
     const [radius, setRadius] = useState(null);
     const [answer, setAnswer] = useState(null);
 
-    // Request permissions right after starting the app
     useEffect(() => {
-        // console.log(Location.GeofencingRegionState);
-        const requestPermissions = async () => {
-            const foreground =
-                await Location.requestForegroundPermissionsAsync();
-            if (foreground.granted)
-                await Location.requestBackgroundPermissionsAsync();
-        };
-        requestPermissions();
         startBackgroundUpdate();
         startForegroundUpdate();
 
-        // console.log(position);
+        console.log(position);
         //point 1
         //lat 52.77903059795448
         //long 6.909968027276716
@@ -136,4 +125,4 @@ const getLocationPermission = () => {
     };
 };
 
-export default getLocationPermission;
+export default locationTracking;
