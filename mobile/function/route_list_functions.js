@@ -134,5 +134,3 @@ export const GetRouteInformation = (apiCallParameter) => {
         }
     }
 };
-
-export default { GetRouteInformation };
