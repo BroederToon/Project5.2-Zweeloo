@@ -19,8 +19,7 @@ const loadScreen = () => {
  * @returns the retrieved content and the styling
  */
 
-export const GetRouteInformation = (navigate) => {
-    const apiCallParameter = navigate.route.params.apiCalled;
+export const GetRouteInformation = (apiCallParameter) => {
     //make useState of isLoading, setloading to true
     const [isLoading, setLoading] = useState(true);
     //make useState of data, setData to empty array

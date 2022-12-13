@@ -52,7 +52,7 @@ const Route_list = (navigate) => {
                             flexDirection: "column",
                         }}
                     >
-                        {GetRouteInformation(navigate)}
+                        {GetRouteInformation(navigate.route.params.apiCalled)}
                     </ScrollView>
                 </View>
             </View>
