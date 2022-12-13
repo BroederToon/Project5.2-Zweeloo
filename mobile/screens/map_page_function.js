@@ -5,6 +5,7 @@ import MapView, { Geojson, Marker } from "react-native-maps";
 import { map } from "../styles/map_page_styles";
 import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import getLocationPermission from "./location";
 
 /*
  * shows the map with the route and all the markers
@@ -114,6 +115,7 @@ const getMapPage = () => {
     //show the map and show the route and the markers
     return (
         <View style={styles.innerLayout}>
+            {getLocationPermission()}
             <View style={styles.headerPage}>
                 <Text style={styles.title}>{data.name}</Text>
             </View>
@@ -122,6 +124,8 @@ const getMapPage = () => {
             ) : (
                 <MapView
                     style={map.mapView}
+                    showsUserLocation={true}
+                    showsMyLocationButton={true}
                     initialRegion={{
                         latitude: 52.794703304265546,
                         longitude: 6.72937774862828,
