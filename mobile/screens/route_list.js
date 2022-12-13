@@ -33,7 +33,7 @@ const Route_list = (navigate) => {
                                 <FontAwesome5
                                     name="arrow-left"
                                     size={24}
-                                    color="red"
+                                    color="#e2030f"
                                 />
                             </Pressable>
                             <Text style={styles.title}>

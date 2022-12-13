@@ -30,7 +30,7 @@ export const card = StyleSheet.create({
     },
     /**Bottom layout of card */
     bottomLayout: {
-        backgroundColor: "red",
+        backgroundColor: "#e2030f",
         height: 3,
     },
     routeText: {
