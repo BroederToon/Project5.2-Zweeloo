@@ -2,9 +2,7 @@ import { card } from "../styles/route_card_styles";
 import { styles } from "../styles/basic_styles";
 import React, { useEffect, useState, useCallback } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Entypo, Ionicons } from "@expo/vector-icons";
 import { Pressable, Text, View } from "react-native";
 
 const loadScreen = () => {
@@ -52,85 +50,73 @@ export const GetRouteInformation = (apiCallParameter) => {
     //if true return loadscreen at the top
     if (isLoading) {
         return loadScreen();
-    } else {
-        //if data has a message instead of normal data return no data to show
-        if (data.message) {
-            return (
-                <View>
-                    <Text style={{ fontSize: 30 }}>No data to show</Text>
-                </View>
-            );
-        } else {
-            //loop through all the data, set the key in the react fragment
-            //and put all the components in an array
-            const results = [];
-
-            data.map((route) => {
-                results.push(
-                    <React.Fragment key={route.id}>
-                        <View style={card.layout}>
-                            <View style={styles.inlineIconText}>
-                                <MaterialCommunityIcons
-                                    name="walk"
-                                    size={30}
-                                    color="black"
-                                />
-                                <Text style={card.routeTitle} numberOfLines={1}>
-                                    {route.name}
-                                </Text>
-                            </View>
-                            <View
-                                style={styles.inlineIconText}
-                                ellipsizeMode="head"
-                            >
-                                <Feather name="info" size={30} color="black" />
-                                <Text
-                                    style={card.routeSubTitle}
-                                    numberOfLines={1}
-                                >
-                                    {route.extra}
-                                </Text>
-                            </View>
-                            <View style={styles.inlineIconText}>
-                                <Entypo
-                                    name="direction"
-                                    size={30}
-                                    color="black"
-                                />
-                                <Text style={card.routeSubTitle}>
-                                    {route.distance}
-                                </Text>
-                            </View>
-                            <View style={card.bottomLayout} />
-                            <Text style={card.routeText} numberOfLines={6}>
-                                {route.description}
-                            </Text>
-                            <View style={styles.inlineIconText}>
-                                <View
-                                    style={{
-                                        width: "100%",
-                                        justifyContent: "space-between",
-                                        flexDirection: "row",
-                                    }}
-                                >
-                                    <Pressable style={card.infoButton}>
-                                        <Ionicons
-                                            name="information"
-                                            size={24}
-                                            color="black"
-                                        />
-                                    </Pressable>
-                                    <Pressable style={card.cardButton}>
-                                        <Text>ZIE ROUTE</Text>
-                                    </Pressable>
-                                </View>
-                            </View>
-                        </View>
-                    </React.Fragment>
-                );
-            });
-
-            return results;
-        }
     }
+
+    //if data has a message instead of normal data return no data to show
+    if (data.message) {
+        return (
+            <View>
+                <Text style={{ fontSize: 30 }}>No data to show</Text>
+            </View>
+        );
+    }
+
+    //loop through all the data, set the key in the react fragment
+    //and put all the components in an array
+    const results = [];
+
+    data.map((route) => {
+        results.push(
+            <React.Fragment key={route.id}>
+                <View style={card.layout}>
+                    <View style={styles.inlineIconText}>
+                        <MaterialCommunityIcons
+                            name="walk"
+                            size={30}
+                            color="black"
+                        />
+                        <Text style={card.routeTitle} numberOfLines={1}>
+                            {route.name}
+                        </Text>
+                    </View>
+                    <View style={styles.inlineIconText} ellipsizeMode="head">
+                        <Feather name="info" size={30} color="black" />
+                        <Text style={card.routeSubTitle} numberOfLines={1}>
+                            {route.extra}
+                        </Text>
+                    </View>
+                    <View style={styles.inlineIconText}>
+                        <Entypo name="direction" size={30} color="black" />
+                        <Text style={card.routeSubTitle}>{route.distance}</Text>
+                    </View>
+                    <View style={card.bottomLayout} />
+                    <Text style={card.routeText} numberOfLines={6}>
+                        {route.description}
+                    </Text>
+                    <View style={styles.inlineIconText}>
+                        <View
+                            style={{
+                                width: "100%",
+                                justifyContent: "space-between",
+                                flexDirection: "row",
+                            }}
+                        >
+                            <Pressable style={card.infoButton}>
+                                <Ionicons
+                                    name="information"
+                                    size={24}
+                                    color="black"
+                                />
+                            </Pressable>
+                            <Pressable style={card.cardButton}>
+                                <Text>ZIE ROUTE</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </React.Fragment>
+        );
+    });
+
+    return results;
 };
