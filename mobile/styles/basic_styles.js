@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     /*Main layout*/
     layout: {
-        flex: 1,
+        flex: 6,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FFF5D2",
@@ -12,21 +12,27 @@ export const styles = StyleSheet.create({
     },
     /*Main innerlayout*/
     innerLayout: {
-        flex: 1,
+        flex: 6,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FFEFB9",
-        margin: 20,
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        marginBottom: 0,
         padding: 0,
-        width: "95%",
+        width: "90%",
+    },
+    upperLayout: {
+        padding: 0,
+        margin: 0,
+        flex: 1.5,
     },
     /**Main header and titles */
     headerPage: {
-        flex: 1,
         alignItems: "center",
-        margin: 10,
         padding: 0,
-        width: "95%",
+        width: "100%",
     },
     title: {
         fontSize: 30,
@@ -38,5 +44,11 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 0,
         flexDirection: "row",
         alignItems: "center",
+        position: "relative",
+    },
+    /**Bottom layout */
+    bottomLayout: {
+        flex: 4.5,
+        marginBottom: 10,
     },
 });
