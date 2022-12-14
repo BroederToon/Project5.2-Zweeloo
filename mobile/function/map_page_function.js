@@ -1,21 +1,20 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/basic_styles";
 import MapView, { Geojson, Marker } from "react-native-maps";
 import { map } from "../styles/map_page_styles";
 import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import getLocationPermission from "./location_permission";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 /*
  * shows the map with the route and all the markers
  *@returns a map with geojson
  */
-const getMapPage = () => {
+const getMapPage = (routeId) => {
     const nav = useNavigation();
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    const [routeId, setRouteId] = useState("1");
 
     //fetch the data and catch errors
     useEffect(() => {
@@ -77,20 +76,22 @@ const getMapPage = () => {
         let markers = [];
         let index = 0;
         //POIs
-        for (let i = 0; i < data.poi.length; i++) {
-            markers.push(
-                <Marker
-                    key={index}
-                    coordinate={{
-                        latitude: parseFloat(data.poi[i].lat),
-                        longitude: parseFloat(data.poi[i].lon),
-                    }}
-                    onPress={() => onMarkerClick(data.poi[i].id)}
-                >
-                    {getImage(data.poi[i].type)}
-                </Marker>
-            );
-            index++;
+        if (data.poi.length != null) {
+            for (let i = 0; i < data.poi.length; i++) {
+                markers.push(
+                    <Marker
+                        key={index}
+                        coordinate={{
+                            latitude: parseFloat(data.poi[i].lat),
+                            longitude: parseFloat(data.poi[i].lon),
+                        }}
+                        onPress={() => onMarkerClick(data.poi[i].id)}
+                    >
+                        {getImage(data.poi[i].type)}
+                    </Marker>
+                );
+                index++;
+            }
         }
         //Nodes
         for (let i = 0; i < data.node.length; i++) {
@@ -115,8 +116,26 @@ const getMapPage = () => {
     //show the map and show the route and the markers
     return (
         <View style={styles.innerLayout}>
-            <View style={styles.headerPage}>
-                <Text style={styles.title}>{data.name}</Text>
+            <View style={styles.upperLayout}>
+                <View style={styles.headerPage}>
+                    <View style={styles.inlineIconText}>
+                        <Pressable
+                            style={{
+                                position: "absolute",
+                                left: -40,
+                                top: 30,
+                            }}
+                            onPress={() => nav.goBack()}
+                        >
+                            <FontAwesome5
+                                name="arrow-left"
+                                size={24}
+                                color="#e2030f"
+                            />
+                        </Pressable>
+                        <Text style={styles.title}>{data.name}</Text>
+                    </View>
+                </View>
             </View>
             {isLoading ? (
                 <StatusBar />
