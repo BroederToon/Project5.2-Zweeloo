@@ -6,6 +6,7 @@ import Route_type_page from "./screens/route_type_page";
 import Information_page from "./screens/information_page";
 import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
+import Point_of_interest_info_page from "./screens/Point_of_interest_info_page";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,11 @@ const AppNavigator = () => (
         <Stack.Screen
             name="RouteList"
             component={Route_list}
+            options={{ headerShown: false }}
+        />
+        <Stack.Screen
+            name="Point_of_interest_info_page"
+            component={Point_of_interest_info_page}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>

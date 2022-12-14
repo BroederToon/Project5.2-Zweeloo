@@ -1,8 +1,12 @@
 import { card } from "../styles/route_card_styles";
 import { styles } from "../styles/basic_styles";
 import React, { useEffect, useState, useCallback } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather, Entypo, Ionicons } from "@expo/vector-icons";
+import {
+    Feather,
+    Entypo,
+    Ionicons,
+    MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import { Pressable, Text, View } from "react-native";
 
 const loadScreen = () => {
