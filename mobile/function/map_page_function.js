@@ -7,9 +7,9 @@ import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-/*
+/**
  * shows the map with the route and all the markers
- *@returns a map with geojson
+ * @returns a map with geojson
  */
 const getMapPage = (routeId) => {
     const nav = useNavigation();
@@ -36,7 +36,7 @@ const getMapPage = (routeId) => {
     //go to the poi page with the given id.
     const onMarkerClick = (id) => {
         console.log(id);
-        nav.navigate("poi_page", { poiId: id });
+        // nav.navigate("poi_page", { poiId: id });
     };
 
     //show the icon from the specific type.
@@ -76,22 +76,20 @@ const getMapPage = (routeId) => {
         let markers = [];
         let index = 0;
         //POIs
-        if (data.poi.length != null) {
-            for (let i = 0; i < data.poi.length; i++) {
-                markers.push(
-                    <Marker
-                        key={index}
-                        coordinate={{
-                            latitude: parseFloat(data.poi[i].lat),
-                            longitude: parseFloat(data.poi[i].lon),
-                        }}
-                        onPress={() => onMarkerClick(data.poi[i].id)}
-                    >
-                        {getImage(data.poi[i].type)}
-                    </Marker>
-                );
-                index++;
-            }
+        for (let i = 0; i < data.poi.length; i++) {
+            markers.push(
+                <Marker
+                    key={index}
+                    coordinate={{
+                        latitude: parseFloat(data.poi[i].lat),
+                        longitude: parseFloat(data.poi[i].lon),
+                    }}
+                    onPress={() => onMarkerClick(data.poi[i].id)}
+                >
+                    {getImage(data.poi[i].type)}
+                </Marker>
+            );
+            index++;
         }
         //Nodes
         for (let i = 0; i < data.node.length; i++) {
