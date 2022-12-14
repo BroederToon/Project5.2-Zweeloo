@@ -6,7 +6,6 @@ import Route_type_page from "./screens/route_type_page";
 import Information_page from "./screens/information_page";
 import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
-import Map_page from "./screens/map_page";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -15,7 +14,7 @@ export const BaseNavigator = () => (
     <Tab.Navigator>
         <Tab.Screen
             name="Home"
-            component={Map_page}
+            component={Home}
             options={{ headerShown: false }}
         />
         <Tab.Screen
@@ -43,8 +42,11 @@ const AppNavigator = () => (
             component={BaseNavigator}
             options={{ headerShown: false }}
         />
-        <Stack.Screen name="Map" component={Map_page} />
-        <Stack.Screen name="RouteList" component={Route_list} />
+        <Stack.Screen
+            name="RouteList"
+            component={Route_list}
+            options={{ headerShown: false }}
+        />
     </Stack.Navigator>
 );
 
