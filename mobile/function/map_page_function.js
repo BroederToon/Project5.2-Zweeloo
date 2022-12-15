@@ -26,9 +26,7 @@ const GetMapPage = (routeId) => {
 
     //Fetching the data from the api.
     const fetchData = useCallback(async () => {
-        const response = await fetch(
-            "http://" + IP + ":3000/api/routes/route/" + routeId
-        );
+        const response = await fetch(`${IP}/api/routes/route/${routeId}`);
 
         const json = await response.json();
         setData(json);

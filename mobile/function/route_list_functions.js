@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather, Entypo, Ionicons } from "@expo/vector-icons";
 import { Pressable, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { IP } from "@env";
 
 const loadScreen = () => {
     return (
@@ -29,9 +30,7 @@ export const GetRouteInformation = (apiCallParameter) => {
     //useCallback is used once an action needs to be called several times before sending it of for use
     const fetchData = useCallback(async () => {
         //api call
-        const response = await fetch(
-            `http://10.232.15.11:3000/api/routes/${apiCallParameter}`
-        );
+        const response = await fetch(`${IP}/api/routes/${apiCallParameter}`);
 
         //set the reponse of the api call to json
         const json = await response.json();
