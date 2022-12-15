@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import * as Location from "expo-location";
 
-const getLocationPermission = () => {
+const GetLocationPermission = () => {
     // Request permissions right after starting the app
     useEffect(() => {
         const requestPermissions = async () => {
@@ -15,4 +15,4 @@ const getLocationPermission = () => {
     }, []);
 };
 
-export default getLocationPermission;
+export default GetLocationPermission;

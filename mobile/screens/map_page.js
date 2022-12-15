@@ -1,17 +1,15 @@
 import { View } from "react-native";
 import { styles } from "../styles/basic_styles";
-import getMapPage from "./../function/map_page_function";
-import locationTracking from "./../function/follow_location";
+import FollowLocation from "../function/follow_location";
+import GetMapPage from "../function/map_page_function";
 
-const Map_page = (navigate) => {
-    {
-        locationTracking();
-    }
+const MapPage = (navigate) => {
+    FollowLocation();
     return (
         <View style={styles.layout}>
-            {getMapPage(navigate.route.params.routeId)}
+            {GetMapPage(navigate.route.params.routeId)}
         </View>
     );
 };
 
-export default Map_page;
+export default MapPage;

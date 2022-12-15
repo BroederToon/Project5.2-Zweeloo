@@ -1,10 +1,12 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 export const map = StyleSheet.create({
+    /*Styling map*/
     mapView: {
         width: "100%",
         height: "90%",
     },
+    /*Styling node */
     node: {
         backgroundColor: "black",
         borderRadius: 10,
@@ -15,6 +17,7 @@ export const map = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 15,
     },
+    /*Styling logo */
     logo: {
         width: 50,
         height: 50,

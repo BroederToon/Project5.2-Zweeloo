@@ -16,13 +16,10 @@ TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
         // Extract location coordinates from data
         const { locations } = data;
         const location = locations[0];
-        if (location) {
-            // console.log("Location in background", location.coords);
-        }
     }
 });
 
-const locationTracking = () => {
+const FollowLocation = () => {
     const [position, setPosition] = useState(null);
     const nav = useNavigation();
 
@@ -34,7 +31,7 @@ const locationTracking = () => {
     // Start location tracking in foreground
     const startForegroundUpdate = async () => {
         // Check if foreground permission is granted
-        const { granted } = await Location.getForegroundPermissionsAsync();
+        const granted = await Location.getForegroundPermissionsAsync();
         if (!granted) {
             console.log("location tracking denied");
             return;
@@ -64,7 +61,7 @@ const locationTracking = () => {
     // Start location tracking in background
     const startBackgroundUpdate = async () => {
         // Don't track position if permission is not granted
-        const { granted } = await Location.getBackgroundPermissionsAsync();
+        const granted = await Location.getBackgroundPermissionsAsync();
         if (!granted) {
             console.log("location tracking denied");
             return;
@@ -108,4 +105,4 @@ const locationTracking = () => {
     };
 };
 
-export default locationTracking;
+export default FollowLocation;

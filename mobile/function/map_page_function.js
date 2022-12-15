@@ -6,12 +6,13 @@ import { map } from "../styles/map_page_styles";
 import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { IP } from "@env";
 
 /**
  * shows the map with the route and all the markers
  * @returns a map with geojson
  */
-const getMapPage = (routeId) => {
+const GetMapPage = (routeId) => {
     const nav = useNavigation();
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -26,11 +27,12 @@ const getMapPage = (routeId) => {
     //Fetching the data from the api.
     const fetchData = useCallback(async () => {
         const response = await fetch(
-            "http://10.232.15.11:3000/api/routes/route/" + routeId
+            "http://" + IP + ":3000/api/routes/route/" + routeId
         );
 
         const json = await response.json();
         setData(json);
+        // console.log(data.route);
     }, []);
 
     //go to the poi page with the given id.
@@ -39,63 +41,52 @@ const getMapPage = (routeId) => {
         // nav.navigate("poi_page", { poiId: id });
     };
 
-    //show the icon from the specific type.
+    //return the require with an image for a specific type of poi
     const getImage = (type) => {
         if (type == "INFO") {
-            return (
-                <Image
-                    style={map.logo}
-                    source={require("../assets/info.png")}
-                />
-            );
+            return require("../assets/info.png");
         } else if (type == "POI") {
-            return (
-                <Image style={map.logo} source={require("../assets/poi.png")} />
-            );
-        } else if (type == "INVIS") {
-            return (
-                <Image
-                    style={map.logo}
-                    source={require("../assets/invis.png")}
-                />
-            );
+            return require("../assets/poi.png");
         } else if (type == "CAFE") {
-            return (
-                <Image
-                    style={map.logo}
-                    source={require("../assets/coffee.png")}
-                />
-            );
+            return require("../assets/coffee.png");
         } else {
-            return;
+            return require("../assets/invis.png");
         }
     };
 
     //loop through all the POIs and nodes from the route and place them on the map.
     const getMarkers = () => {
+        //make an array for all the markers.
         let markers = [];
-        let index = 0;
-        //POIs
+        //the index for the key of the marker
+        let key = 0;
+        // console.log(data.route.features[0].geometry.coordinates[0][0]);
+
+        //loop through all the POIs from the database and create a marker with the correct img for the marker on the map.
         for (let i = 0; i < data.poi.length; i++) {
             markers.push(
                 <Marker
-                    key={index}
+                    key={key}
                     coordinate={{
                         latitude: parseFloat(data.poi[i].lat),
                         longitude: parseFloat(data.poi[i].lon),
                     }}
                     onPress={() => onMarkerClick(data.poi[i].id)}
                 >
-                    {getImage(data.poi[i].type)}
+                    <Image
+                        style={map.logo}
+                        source={getImage(data.poi[i].type)}
+                    />
                 </Marker>
             );
-            index++;
+            key++;
         }
-        //Nodes
+
+        //loop through all the nodes from the database and create a marker with the number of the node on the map.
         for (let i = 0; i < data.node.length; i++) {
             markers.push(
                 <Marker
-                    key={index}
+                    key={key}
                     coordinate={{
                         latitude: parseFloat(data.node[i].lat),
                         longitude: parseFloat(data.node[i].lon),
@@ -106,8 +97,9 @@ const getMapPage = (routeId) => {
                     </View>
                 </Marker>
             );
-            index++;
+            key++;
         }
+        //return all the markers
         return markers;
     };
 
@@ -143,9 +135,11 @@ const getMapPage = (routeId) => {
                     showsUserLocation={true}
                     showsMyLocationButton={true}
                     initialRegion={{
-                        latitude: 52.794703304265546,
-                        longitude: 6.72937774862828,
-                        latitudeDelta: 0.01,
+                        latitude:
+                            data.route.features[0].geometry.coordinates[0][1],
+                        longitude:
+                            data.route.features[0].geometry.coordinates[0][0],
+                        latitudeDelta: 0.015,
                         longitudeDelta: 0.01,
                     }}
                 >
@@ -162,4 +156,4 @@ const getMapPage = (routeId) => {
     );
 };
 
-export default getMapPage;
+export default GetMapPage;
