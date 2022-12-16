@@ -1,10 +1,10 @@
 import { card } from "../styles/route_card_styles";
 import { styles } from "../styles/basic_styles";
 import { poiInfo } from "../styles/poi_page_styles";
+import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState, useCallback } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather, Entypo, Ionicons } from "@expo/vector-icons";
-import { Pressable, Text, View } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { Pressable, Text, View, Image } from "react-native";
 
 const loadScreen = () => {
     return (
@@ -15,22 +15,58 @@ const loadScreen = () => {
 };
 
 export const showPoiInfo = () => {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    const fetchData = useCallback(async () => {
+        const response = await fetch(
+            "http://10.232.13.234:3000/api/poi_img/poi/1"
+        );
+
+        const json = await response.json();
+
+        setData(json);
+    }, []);
+
+    useEffect(() => {
+        fetchData()
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, [fetchData]);
+
+    if (isLoading) {
+        return loadScreen();
+    }
+
+    if (data.message) {
+        return (
+            <View>
+                <Text style={{ fontSize: 30 }}>No data to show</Text>
+            </View>
+        );
+    }
+
+    console.log(data);
+
     return (
-        <View style={card.layout}>
+        <View style={poiInfo.layout}>
             <View style={styles.inlineIconText}>
-                <Text style={card.routeTitle}>Klooster nr 5</Text>
-                <MaterialCommunityIcons name="walk" size={30} color="black" />
+                <Text style={poiInfo.poiTitle}>Klooster nr 5</Text>
+                <Feather
+                    name="volume-2"
+                    size={30}
+                    color="black"
+                    style={{
+                        position: "absolute",
+                        left: 225,
+                    }}
+                />
             </View>
-            <View style={styles.inlineIconText} ellipsizeMode="head">
-                <Feather name="info" size={30} color="black" />
-                <Text style={card.routeSubTitle}>Marion Mencke</Text>
-            </View>
-            <View style={styles.inlineIconText}>
-                <Entypo name="direction" size={30} color="black" />
-                <Text style={card.routeSubTitle}>Zweeloo</Text>
-            </View>
-            <View style={card.bottomLayout} />
-            <Text style={{ fontSize: 15, marginTop: 10, lineHeight: 13 }}>
+            <Image
+                source={require("../assets/44207-b580.jpg")}
+                style={poiInfo.poiImage}
+            />
+            <Text style={{ fontSize: 15, marginTop: 10 }}>
                 Wat bezielde Max Liebermann, een rijke schilder uit Berlijn, om
                 in 1882 naar Zweeloo te komen en arme mensen te schilderen? Net
                 als veel andere schilders was hij op zoek naar het ongerepte, de
@@ -46,22 +82,6 @@ export const showPoiInfo = () => {
                 afbeeldingen en achtergrondinformatie. Ideaal om deze vooraf,
                 thuis, of na afloop nog eens uitgebreid op uw gemak te bekijken.
             </Text>
-            <View style={styles.inlineIconText}>
-                <View
-                    style={{
-                        width: "100%",
-                        justifyContent: "space-between",
-                        flexDirection: "row",
-                    }}
-                >
-                    <Pressable style={card.infoButton}>
-                        <Ionicons name="information" size={24} color="black" />
-                    </Pressable>
-                    <Pressable style={card.cardButton}>
-                        <Text>ZIE ROUTE</Text>
-                    </Pressable>
-                </View>
-            </View>
         </View>
     );
 };

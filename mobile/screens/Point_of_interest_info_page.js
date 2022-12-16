@@ -45,8 +45,6 @@ const Point_of_interest_info_page = () => {
                         }}
                     >
                         {showPoiInfo()}
-
-                        {/* {GetRouteInformation(navigate.route.params.apiCalled)} */}
                     </ScrollView>
                 </View>
             </View>
