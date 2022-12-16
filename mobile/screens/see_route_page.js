@@ -6,6 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 
 const SeeRoutePage = (navigate) => {
     const nav = useNavigation();
+
+    //is false, for no user location on the map.
     const hasLocation = false;
 
     return (

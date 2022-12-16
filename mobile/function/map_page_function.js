@@ -9,6 +9,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { IP } from "@env";
 
 /**
+ * routeId for the id of the route that you want to show.
+ * hasLocation if you want the user location on the map.
  * shows the map with the route and all the markers
  * @returns a map with geojson
  */

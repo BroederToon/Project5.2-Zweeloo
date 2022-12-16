@@ -7,8 +7,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
 const MapPage = (navigate) => {
+    //Is true, for the user location on the map
     const hasLocation = true;
+
     FollowLocation();
+
     return (
         <View style={styles.layout}>
             {GetMapPage(navigate.route.params.routeId, hasLocation)}
