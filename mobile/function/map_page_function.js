@@ -12,7 +12,7 @@ import { IP } from "@env";
  * shows the map with the route and all the markers
  * @returns a map with geojson
  */
-const GetMapPage = (routeId) => {
+const GetMapPage = (routeId, hasLocation) => {
     const nav = useNavigation();
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -130,8 +130,8 @@ const GetMapPage = (routeId) => {
             ) : (
                 <MapView
                     style={map.mapView}
-                    showsUserLocation={true}
-                    showsMyLocationButton={true}
+                    showsUserLocation={hasLocation}
+                    showsMyLocationButton={hasLocation}
                     initialRegion={{
                         latitude:
                             data.route.features[0].geometry.coordinates[0][1],

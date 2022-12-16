@@ -6,7 +6,8 @@ import Route_type_page from "./screens/route_type_page";
 import Information_page from "./screens/information_page";
 import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
-import Map_page from "./screens/map_page";
+import MapPage from "./screens/map_page";
+import SeeRoutePage from "./screens/see_route_page";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -50,7 +51,12 @@ const AppNavigator = () => (
         />
         <Stack.Screen
             name="MapPage"
-            component={Map_page}
+            component={MapPage}
+            options={{ headerShown: false }}
+        />
+        <Stack.Screen
+            name="SeeRoute"
+            component={SeeRoutePage}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>

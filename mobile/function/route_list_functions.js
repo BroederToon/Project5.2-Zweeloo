@@ -112,7 +112,7 @@ export const GetRouteInformation = (apiCallParameter) => {
                             <Pressable
                                 style={card.cardButton}
                                 onPress={() =>
-                                    nav.navigate("MapPage", {
+                                    nav.navigate("SeeRoute", {
                                         routeId: route.id,
                                     })
                                 }

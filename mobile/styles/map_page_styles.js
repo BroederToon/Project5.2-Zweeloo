@@ -5,6 +5,7 @@ export const map = StyleSheet.create({
     mapView: {
         width: "100%",
         height: "90%",
+        marginBottom: 10,
     },
     /*Styling node */
     node: {
