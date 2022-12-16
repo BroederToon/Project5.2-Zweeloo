@@ -29,7 +29,11 @@ const Route_type_page = () => {
                 <Text>Fietsroute</Text>
             </Pressable>
             <Pressable
-                onPress={() => nav.navigate("Point_of_interest_info_page")}
+                onPress={() =>
+                    nav.navigate("Point_of_interest_info_page", {
+                        poiId: 1,
+                    })
+                }
             >
                 <Text>POI</Text>
             </Pressable>

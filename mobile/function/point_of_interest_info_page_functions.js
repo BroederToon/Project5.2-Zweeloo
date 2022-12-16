@@ -1,7 +1,5 @@
-import { card } from "../styles/route_card_styles";
 import { styles } from "../styles/basic_styles";
 import { poiInfo } from "../styles/poi_page_styles";
-import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState, useCallback } from "react";
 import { Feather } from "@expo/vector-icons";
 import { Pressable, Text, View, Image } from "react-native";
@@ -14,13 +12,14 @@ const loadScreen = () => {
     );
 };
 
-export const showPoiInfo = () => {
+export const showPoiInfo = (poiId) => {
+    console.log(poiId);
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
     const fetchData = useCallback(async () => {
         const response = await fetch(
-            "http://10.232.13.234:3000/api/poi_img/poi/1"
+            `http://10.232.13.234:3000/api/poi_img/poi/${poiId}`
         );
 
         const json = await response.json();
@@ -38,13 +37,13 @@ export const showPoiInfo = () => {
         return loadScreen();
     }
 
-    if (data.message) {
-        return (
-            <View>
-                <Text style={{ fontSize: 30 }}>No data to show</Text>
-            </View>
-        );
-    }
+    // if (data.message) {
+    //     return (
+    //         <View>
+    //             <Text style={{ fontSize: 30 }}>No data to show</Text>
+    //         </View>
+    //     );
+    // }
 
     console.log(data);
 

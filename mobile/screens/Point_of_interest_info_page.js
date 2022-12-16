@@ -4,7 +4,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { showPoiInfo } from "../function/point_of_interest_info_page_functions";
 
-const Point_of_interest_info_page = () => {
+const Point_of_interest_info_page = (navigate) => {
     const nav = useNavigation();
 
     return (
@@ -44,7 +44,7 @@ const Point_of_interest_info_page = () => {
                             flexDirection: "column",
                         }}
                     >
-                        {showPoiInfo()}
+                        {showPoiInfo(navigate.route.params.poiId)}
                     </ScrollView>
                 </View>
             </View>
