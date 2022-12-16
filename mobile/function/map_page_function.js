@@ -9,10 +9,12 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { IP } from "@env";
 
 /**
+ * routeId for the id of the route that you want to show.
+ * hasLocation if you want the user location on the map.
  * shows the map with the route and all the markers
  * @returns a map with geojson
  */
-const GetMapPage = (routeId) => {
+const GetMapPage = (routeId, hasLocation) => {
     const nav = useNavigation();
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -130,8 +132,8 @@ const GetMapPage = (routeId) => {
             ) : (
                 <MapView
                     style={map.mapView}
-                    showsUserLocation={true}
-                    showsMyLocationButton={true}
+                    showsUserLocation={hasLocation}
+                    showsMyLocationButton={hasLocation}
                     initialRegion={{
                         latitude:
                             data.route.features[0].geometry.coordinates[0][1],
