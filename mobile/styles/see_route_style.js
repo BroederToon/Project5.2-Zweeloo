@@ -18,6 +18,7 @@ export const see_route = StyleSheet.create({
         fontSize: 20,
         alignSelf: "center",
     },
+    /**Styling go back button */
     backButton: {
         position: "absolute",
         backgroundColor: "#e41d18",
