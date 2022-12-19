@@ -31,7 +31,7 @@ const Route_type_page = () => {
             <Pressable
                 onPress={() =>
                     nav.navigate("Point_of_interest_info_page", {
-                        poiId: 1,
+                        poiId: 5,
                     })
                 }
             >

@@ -32,7 +32,7 @@ export const GetRouteInformation = (apiCallParameter) => {
     const fetchData = useCallback(async () => {
         //api call
         const response = await fetch(
-            `http://10.232.13.234:3000/api/routes/${apiCallParameter}`
+            `http://10.232.7.233:3000/api/routes/${apiCallParameter}`
         );
 
         //set the reponse of the api call to json

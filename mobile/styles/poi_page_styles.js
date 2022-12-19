@@ -28,5 +28,7 @@ export const poiInfo = StyleSheet.create({
         borderWidth: 1,
         borderColor: "black",
         borderRadius: 10,
+        width: "100%",
+        height: 200,
     },
 });
