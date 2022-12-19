@@ -32,8 +32,25 @@ const GetMapPage = (routeId, hasLocation) => {
 
         const json = await response.json();
         setData(json);
-        // console.log(data.route);
     }, []);
+
+    // if data has a message instead of normal data return no data to show
+    if (data.message) {
+        return (
+            <View>
+                <Pressable
+                    style={{
+                        position: "absolute",
+                        left: -40,
+                    }}
+                    onPress={() => nav.goBack()}
+                >
+                    <FontAwesome5 name="arrow-left" size={24} color="#e2030f" />
+                </Pressable>
+                <Text style={{ fontSize: 30 }}>No data to show</Text>
+            </View>
+        );
+    }
 
     //go to the poi page with the given id.
     const onMarkerClick = (id) => {

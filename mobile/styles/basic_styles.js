@@ -38,6 +38,7 @@ export const styles = StyleSheet.create({
         fontSize: 30,
         paddingTop: 20,
         fontWeight: "600",
+        maxWidth: "80%",
     },
     inlineIconText: {
         paddingVertical: 0,
