@@ -28,7 +28,7 @@ const Route_type_page = () => {
             >
                 <Text>Fietsroute</Text>
             </Pressable>
-            <Pressable
+            {/* <Pressable
                 onPress={() =>
                     nav.navigate("Point_of_interest_info_page", {
                         poiId: 5,
@@ -36,7 +36,7 @@ const Route_type_page = () => {
                 }
             >
                 <Text>POI</Text>
-            </Pressable>
+            </Pressable> */}
         </View>
     );
 };

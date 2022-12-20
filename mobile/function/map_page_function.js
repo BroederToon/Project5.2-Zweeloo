@@ -24,6 +24,7 @@ const GetMapPage = (routeId, hasLocation) => {
         fetchData()
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
+        console.log(isLoading);
     }, [fetchData]);
 
     //Fetching the data from the api.
@@ -32,7 +33,9 @@ const GetMapPage = (routeId, hasLocation) => {
 
         const json = await response.json();
         setData(json);
-        // console.log(data.route);
+        console.log(data.route);
+        console.log(isLoading);
+        console.log("we komen bij de fetchdata");
     }, []);
 
     //go to the poi page with the given id.
