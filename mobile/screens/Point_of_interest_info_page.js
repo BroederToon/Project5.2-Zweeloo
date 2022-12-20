@@ -4,6 +4,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { showPoiInfo } from "../function/point_of_interest_info_page_functions";
 
+//the component which is needed to show the poi information.
 const Point_of_interest_info_page = (navigate) => {
     const nav = useNavigation();
 

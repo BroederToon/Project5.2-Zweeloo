@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const poiInfo = StyleSheet.create({
+    /**base layout */
     layout: {
         flex: 1,
         backgroundColor: "#FFEFB9",
@@ -22,6 +23,7 @@ export const poiInfo = StyleSheet.create({
         margin: 0,
         paddingLeft: 30,
     },
+    /**image base */
     poiImage: {
         marginTop: 25,
         maxWidth: "100%",

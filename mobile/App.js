@@ -103,7 +103,7 @@ const AppNavigator = () => (
         <Stack.Screen
             name="Point_of_interest_info_page"
             component={Point_of_interest_info_page}
-            options={{ headerShow: false }}
+            options={{ headerShown: false }}
         />
 
         <Stack.Screen
