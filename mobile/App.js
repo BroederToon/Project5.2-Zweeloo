@@ -6,7 +6,7 @@ import Route_type_page from "./screens/route_type_page";
 import Information_page from "./screens/information_page";
 import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
-import Point_of_interest_info_page from "./screens/Point_of_interest_info_page";
+import PointOfInterestInfoPage from "./screens/point_of_interest_info_page";
 import MapPage from "./screens/map_page";
 import SeeRoutePage from "./screens/see_route_page";
 import { Ionicons } from "@expo/vector-icons";
@@ -102,7 +102,7 @@ const AppNavigator = () => (
         />
         <Stack.Screen
             name="Point_of_interest_info_page"
-            component={Point_of_interest_info_page}
+            component={PointOfInterestInfoPage}
             options={{ headerShown: false }}
         />
 

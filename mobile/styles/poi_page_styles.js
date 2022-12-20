@@ -21,7 +21,7 @@ export const poiInfo = StyleSheet.create({
         fontWeight: "500",
         padding: 0,
         margin: 0,
-        paddingLeft: 30,
+        paddingRight: 20,
     },
     /**image base */
     poiImage: {

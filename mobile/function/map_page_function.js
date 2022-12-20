@@ -32,12 +32,10 @@ const GetMapPage = (routeId, hasLocation) => {
 
         const json = await response.json();
         setData(json);
-        console.log("we komen bij de fetchdata");
     }, []);
 
     //go to the poi page with the given id.
     const onMarkerClick = (id) => {
-        console.log(id);
         nav.navigate("Point_of_interest_info_page", { poiId: id });
     };
 

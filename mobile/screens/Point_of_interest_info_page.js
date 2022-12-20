@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { showPoiInfo } from "../function/point_of_interest_info_page_functions";
 
 //the component which is needed to show the poi information.
-const Point_of_interest_info_page = (navigate) => {
+const PointOfInterestInfoPage = (navigate) => {
     const nav = useNavigation();
 
     return (
@@ -53,4 +53,4 @@ const Point_of_interest_info_page = (navigate) => {
     );
 };
 
-export default Point_of_interest_info_page;
+export default PointOfInterestInfoPage;
