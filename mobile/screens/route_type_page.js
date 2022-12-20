@@ -2,8 +2,7 @@ import { Text, View, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/basic_styles";
 import { type } from "../styles/route-type-style";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 
 const Route_type_page = () => {
     const nav = useNavigation();
@@ -58,7 +57,7 @@ const Route_type_page = () => {
                         >
                             <FontAwesome5
                                 name="walking"
-                                size={100}
+                                size={90}
                                 color="black"
                                 style={type.icon}
                             />
