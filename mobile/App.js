@@ -8,31 +8,81 @@ import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
 import MapPage from "./screens/map_page";
 import SeeRoutePage from "./screens/see_route_page";
+import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const BaseNavigator = () => (
-    <Tab.Navigator>
+    <Tab.Navigator
+        screenOptions={{
+            tabBarActiveTintColor: "#FFF",
+            tabBarInactiveTintColor: "#FFF",
+            tabBarActiveBackgroundColor: "#00427D",
+            tabBarInactiveBackgroundColor: "#00427D",
+            tabBarShowLabel: false,
+            tabBarStyle: { height: 60 },
+        }}
+    >
         <Tab.Screen
             name="Home"
             component={Home}
-            options={{ headerShown: false }}
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, focused }) => (
+                    <Ionicons
+                        name={focused ? "home" : "home-outline"}
+                        size={30}
+                        color={color}
+                    />
+                ),
+            }}
         />
         <Tab.Screen
-            name="Route"
+            name="Routes"
             component={Route_type_page}
-            options={{ headerShown: false }}
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, focused }) => (
+                    <Ionicons
+                        name={focused ? "map" : "map-outline"}
+                        size={30}
+                        color={color}
+                    />
+                ),
+            }}
         />
         <Tab.Screen
             name="Information"
             component={Information_page}
-            options={{ headerShown: false }}
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, focused }) => (
+                    <Ionicons
+                        name={
+                            focused
+                                ? "information-circle"
+                                : "information-circle-outline"
+                        }
+                        size={30}
+                        color={color}
+                    />
+                ),
+            }}
         />
         <Tab.Screen
-            name="Option"
+            name="Settings"
             component={Option_page}
-            options={{ headerShown: false }}
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, focused }) => (
+                    <Ionicons
+                        name={focused ? "settings" : "settings-outline"}
+                        size={30}
+                        color={color}
+                    />
+                ),
+            }}
         />
     </Tab.Navigator>
 );
