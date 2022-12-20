@@ -8,6 +8,7 @@ import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
 import MapPage from "./screens/map_page";
 import SeeRoutePage from "./screens/see_route_page";
+import SponsorPage from "./screens/sponsors";
 import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
@@ -107,6 +108,11 @@ const AppNavigator = () => (
         <Stack.Screen
             name="SeeRoute"
             component={SeeRoutePage}
+            options={{ headerShown: false }}
+        />
+        <Stack.Screen
+            name="SponsorPage"
+            component={SponsorPage}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>
