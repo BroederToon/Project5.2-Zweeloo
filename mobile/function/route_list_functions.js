@@ -1,19 +1,15 @@
 import { card } from "../styles/route_card_styles";
 import { styles } from "../styles/basic_styles";
 import React, { useEffect, useState, useCallback } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Feather, Entypo, Ionicons } from "@expo/vector-icons";
-import { Pressable, Text, View } from "react-native";
+import {
+    Feather,
+    Entypo,
+    Ionicons,
+    MaterialCommunityIcons,
+} from "@expo/vector-icons";
+import { Pressable, Text, View, ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { IP } from "@env";
-
-const loadScreen = () => {
-    return (
-        <View>
-            <Text style={{ fontSize: 30 }}>isLoading...</Text>
-        </View>
-    );
-};
 
 /**
  * @returns the retrieved content and the styling
@@ -50,7 +46,7 @@ export const GetRouteInformation = (apiCallParameter) => {
 
     //if true return loadscreen at the top
     if (isLoading) {
-        return loadScreen();
+        return <ActivityIndicator size="large" color="#e2030f" />;
     }
 
     //if data has a message instead of normal data return no data to show
