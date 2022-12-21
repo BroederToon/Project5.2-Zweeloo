@@ -6,7 +6,8 @@ import { Text, View, Image, ActivityIndicator } from "react-native";
 import { IP } from "@env";
 
 /**
- *
+ * This function shows all the information once a user has clicked
+ * on a poi, it shows the images, text and the audio that belongs to the poi
  * @param {*} poiId The poiId of the marker that is given along
  * @returns The info of the clicked poi and the images and audio source
  */
