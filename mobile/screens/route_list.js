@@ -3,6 +3,7 @@ import { GetRouteInformation } from "../function/route_list_functions";
 import { Text, View, Image, ScrollView, Pressable } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import Header from "../components/header";
 
 /**
  * importing the basic styles and importing the function called GetRouteInformation
@@ -14,35 +15,8 @@ const Route_list = (navigate) => {
 
     return (
         <View style={styles.layout}>
-            <View style={styles.innerLayout}>
-                <View style={styles.upperLayout}>
-                    <View style={styles.headerPage}>
-                        <Image
-                            source={require("../assets/logohighres.png")}
-                            style={{ marginTop: 25 }}
-                        />
-                        <View style={styles.inlineIconText}>
-                            <Pressable
-                                style={{
-                                    position: "absolute",
-                                    left: -40,
-                                    top: 30,
-                                }}
-                                onPress={() => nav.goBack()}
-                            >
-                                <FontAwesome5
-                                    name="arrow-left"
-                                    size={24}
-                                    color="#e2030f"
-                                />
-                            </Pressable>
-                            <Text style={styles.title}>
-                                {navigate.route.params.routeType}
-                            </Text>
-                        </View>
-                        <Text>Kies een route:</Text>
-                    </View>
-                </View>
+            <View style={styles.innerLayout}>                
+                <Header pageName="Kies een route"/>
                 <View style={styles.bottomLayout}>
                     <ScrollView
                         contentContainerStyle={{

@@ -24,27 +24,27 @@ export const styles = StyleSheet.create({
         width: "90%",
     },
     upperLayout: {
+        width: "100%",
+        alignItems: "center",
         padding: 0,
         margin: 0,
         flex: 1.5,
     },
     /**Main header and titles */
-    headerPage: {
-        alignItems: "center",
-        padding: 0,
-        width: "100%",
-    },
-    title: {
-        fontSize: 30,
-        paddingTop: 20,
-        fontWeight: "600",
-    },
-    inlineIconText: {
-        paddingVertical: 0,
-        paddingHorizontal: 0,
+    headerTitle: {
         flexDirection: "row",
         alignItems: "center",
         position: "relative",
+        marginVertical: 8,
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: "600",
+    },
+    backBtn: {
+        position: "absolute",
+        left: -40,
+        top: 12,
     },
     /**Bottom layout */
     bottomLayout: {

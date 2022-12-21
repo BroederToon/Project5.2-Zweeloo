@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/basic_styles";
 import { type } from "../styles/route-type-style";
 import { FontAwesome5, Ionicons } from "@expo/vector-icons";
+import Header from "../components/header";
 
 const Route_type_page = () => {
     const nav = useNavigation();
@@ -10,20 +11,7 @@ const Route_type_page = () => {
     return (
         <View style={styles.layout}>
             <View style={styles.innerLayout}>
-                <View style={styles.upperLayout}>
-                    <View style={styles.headerPage}>
-                        <Image
-                            source={require("../assets/logohighres.png")}
-                            style={{ marginTop: 25 }}
-                        />
-
-                        <View style={styles.inlineIconText}>
-                            <Text style={styles.title}>
-                                Kies een route type
-                            </Text>
-                        </View>
-                    </View>
-                </View>
+                <Header pageName="Kies een route type" />
                 <View style={type.buttons}>
                     <View style={type.typeButton}>
                         <Pressable

@@ -5,8 +5,8 @@ import MapView, { Geojson, Marker } from "react-native-maps";
 import { map } from "../styles/map_page_styles";
 import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { IP } from "@env";
+import Header from "../components/header";
 
 /**
  * routeId for the id of the route that you want to show.
@@ -106,32 +106,12 @@ const GetMapPage = (routeId, hasLocation) => {
     //show the map and show the route and the markers
     return (
         <View style={styles.innerLayout}>
-            <View style={styles.upperLayout}>
-                <View style={styles.headerPage}>
-                    <View style={styles.inlineIconText}>
-                        <Pressable
-                            style={{
-                                position: "absolute",
-                                left: -40,
-                                top: 30,
-                            }}
-                            onPress={() => nav.goBack()}
-                        >
-                            <FontAwesome5
-                                name="arrow-left"
-                                size={24}
-                                color="#e2030f"
-                            />
-                        </Pressable>
-                        <Text style={styles.title}>{data.name}</Text>
-                    </View>
-                </View>
-            </View>
+            <Header pageName={data.name}/>
             {isLoading ? (
                 <StatusBar />
             ) : (
                 <MapView
-                    style={map.mapView}
+                    style={styles.bottomLayout}
                     showsUserLocation={hasLocation}
                     showsMyLocationButton={hasLocation}
                     initialRegion={{

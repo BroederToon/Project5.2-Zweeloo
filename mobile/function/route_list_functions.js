@@ -70,7 +70,7 @@ export const GetRouteInformation = (apiCallParameter) => {
         results.push(
             <React.Fragment key={route.id}>
                 <View style={card.layout}>
-                    <View style={styles.inlineIconText}>
+                    <View style={styles.headerTitle}>
                         <MaterialCommunityIcons
                             name="walk"
                             size={30}
@@ -80,13 +80,13 @@ export const GetRouteInformation = (apiCallParameter) => {
                             {route.name}
                         </Text>
                     </View>
-                    <View style={styles.inlineIconText} ellipsizeMode="head">
+                    <View style={styles.headerTitle} ellipsizeMode="head">
                         <Feather name="info" size={30} color="black" />
                         <Text style={card.routeSubTitle} numberOfLines={1}>
                             {route.extra}
                         </Text>
                     </View>
-                    <View style={styles.inlineIconText}>
+                    <View style={styles.headerTitle}>
                         <Entypo name="direction" size={30} color="black" />
                         <Text style={card.routeSubTitle}>{route.distance}</Text>
                     </View>
@@ -94,7 +94,7 @@ export const GetRouteInformation = (apiCallParameter) => {
                     <Text style={card.routeText} numberOfLines={6}>
                         {route.description}
                     </Text>
-                    <View style={styles.inlineIconText}>
+                    <View style={styles.headerTitle}>
                         <View
                             style={{
                                 width: "100%",

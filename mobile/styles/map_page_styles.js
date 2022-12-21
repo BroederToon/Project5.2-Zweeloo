@@ -1,12 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const map = StyleSheet.create({
-    /**Styling map*/
-    mapView: {
-        width: "100%",
-        height: "90%",
-        marginBottom: 10,
-    },
     /**Styling node */
     node: {
         backgroundColor: "black",
