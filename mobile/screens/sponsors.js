@@ -1,7 +1,7 @@
 import { Text, View, Pressable, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/basic_styles";
-import { FontAwesome5, Ionicons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 import { GetSponsors } from "../function/get_sponsors";
 
 const SponsorPage = () => {
@@ -43,11 +43,11 @@ const SponsorPage = () => {
                             alignItems: "center",
                             flexDirection: "column",
                         }}
-                        style = {{
+                        style={{
                             width: "100%",
-                            backgroundColor: "blue"
                         }}
                     >
+                        {/* Generate the sponsor tiles */}
                         {GetSponsors()}
                     </ScrollView>
                 </View>
