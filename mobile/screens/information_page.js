@@ -7,11 +7,11 @@ const Information_page = () => {
     return (
         <View style={styles.layout}>
             <Text style={styles.title}>Information</Text>
-            <Pressable
+            <Pressable style={{width: 100, height: 50}}
                 onPress={() =>
                     nav.navigate("SponsorPage")
                 }
-            ><Text>test</Text></Pressable>
+            ><Text>Zie sponsoren</Text></Pressable>
         </View>
     );
 };

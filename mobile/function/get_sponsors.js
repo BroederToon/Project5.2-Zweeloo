@@ -27,7 +27,7 @@ export const GetSponsors = () => {
 
     //If the data is still loading return an activityindicator
     if (isLoading) {
-        return <ActivityIndicator />;
+        return <ActivityIndicator size="large" color="#e41d18" />;
     }
 
     //If there is an error, return a text with a message
@@ -74,7 +74,9 @@ export const GetSponsors = () => {
                             style={sponsorStyle.button}
                             onPress={() => Linking.openURL(sponsor.link)}
                         >
-                            <Text style={sponsorStyle.buttonTxt}>Ga naar website</Text>
+                            <Text style={sponsorStyle.buttonTxt}>
+                                Ga naar website
+                            </Text>
                         </Pressable>
                     </View>
                 </View>
