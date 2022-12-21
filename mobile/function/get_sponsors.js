@@ -5,6 +5,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { sponsors as sponsorStyle } from "../styles/sponsor_styles";
 
+/**
+ * Loads the sponsors from the database
+ * @returns an array with sponsors components
+ */
 export const GetSponsors = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
