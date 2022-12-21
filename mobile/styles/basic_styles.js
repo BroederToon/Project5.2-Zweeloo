@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
     backBtn: {
         position: "absolute",
         left: -40,
-        top: 12,
+        top: 9,
     },
     /**Bottom layout */
     bottomLayout: {
