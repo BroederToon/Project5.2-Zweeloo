@@ -3,8 +3,9 @@ import { StyleSheet } from "react-native";
 export const sponsors = StyleSheet.create({
     // Each sponsor tile
     card: {
-        width: "80%",
-        marginBottom: 25,
+        height: 250,
+        width: "85%",
+        marginBottom: 10,
     },
     // The image in the tile
     image: {

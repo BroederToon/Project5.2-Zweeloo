@@ -3,9 +3,12 @@ import React, { useEffect, useState, useCallback } from "react";
 import { IP } from "@env";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Line from "../components/line";
-
 import { sponsors as sponsorStyle } from "../styles/sponsor_styles";
 
+/**
+ * Loads the sponsors from the database
+ * @returns an array with sponsors components
+ */
 export const GetSponsors = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);

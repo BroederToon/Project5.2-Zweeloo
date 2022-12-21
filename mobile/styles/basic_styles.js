@@ -48,6 +48,7 @@ export const styles = StyleSheet.create({
     },
     /**Bottom layout */
     bottomLayout: {
+        width: "100%",
         flex: 4.5,
         marginBottom: 10,
     },
