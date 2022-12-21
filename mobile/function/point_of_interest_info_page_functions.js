@@ -2,16 +2,8 @@ import { styles } from "../styles/basic_styles";
 import { poiInfo } from "../styles/poi_page_styles";
 import React, { useEffect, useState, useCallback } from "react";
 import { Feather } from "@expo/vector-icons";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, ActivityIndicator } from "react-native";
 import { IP } from "@env";
-
-const loadScreen = () => {
-    return (
-        <View>
-            <Text style={{ fontSize: 30 }}>isLoading...</Text>
-        </View>
-    );
-};
 
 /**
  *
@@ -40,7 +32,7 @@ export const showPoiInfo = (poiId) => {
 
     //check whether it's stil loading
     if (isLoading) {
-        return loadScreen();
+        return <ActivityIndicator size="large" color="#e2030f" />;
     }
 
     //check whether a message has been send.
