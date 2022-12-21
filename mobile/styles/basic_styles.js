@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
         width: "90%",
     },
     upperLayout: {
+        width: "100%",
         padding: 0,
         margin: 0,
         flex: 1.5,
@@ -48,6 +49,7 @@ export const styles = StyleSheet.create({
     },
     /**Bottom layout */
     bottomLayout: {
+        width: "100%",
         flex: 4.5,
         marginBottom: 10,
     },
