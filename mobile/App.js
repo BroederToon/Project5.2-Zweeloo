@@ -101,7 +101,7 @@ const AppNavigator = () => (
             options={{ headerShown: false }}
         />
         <Stack.Screen
-            name="Point_of_interest_info_page"
+            name="PointOfInterestInfoPage"
             component={PointOfInterestInfoPage}
             options={{ headerShown: false }}
         />
