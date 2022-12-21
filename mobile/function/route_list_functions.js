@@ -24,6 +24,7 @@ const loadScreen = () => {
  */
 
 export const GetRouteInformation = (apiCallParameter) => {
+    console.log("hallo");
     //make useState of isLoading, setloading to true
     const [isLoading, setLoading] = useState(true);
     //make useState of data, setData to empty array

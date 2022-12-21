@@ -29,6 +29,7 @@ export const showPoiInfo = (poiId) => {
         const json = await response.json();
 
         setData(json);
+        console.log("test");
     }, []);
 
     //use the fetchData and check on the errors within and then call it
