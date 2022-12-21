@@ -20,7 +20,7 @@ export default function Header(props) {
                     <FontAwesome5 name="arrow-left" size={24} color="#e2030f" />
                 </Pressable>
                 {/* The page title */}
-                <Text style={styles.title}>{props.pageName}</Text>
+                <Text style={styles.title} numberOfLines={1}>{props.pageName}</Text>
             </View>
             <Line />
         </View>

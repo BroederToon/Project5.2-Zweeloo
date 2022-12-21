@@ -35,10 +35,10 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         position: "relative",
-        marginVertical: 8,
+        marginVertical: 10,
     },
     title: {
-        fontSize: 30,
+        fontSize: 25,
         fontWeight: "600",
     },
     backBtn: {

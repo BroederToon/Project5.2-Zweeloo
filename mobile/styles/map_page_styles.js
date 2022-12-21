@@ -2,6 +2,11 @@ import { StyleSheet } from "react-native";
 
 export const map = StyleSheet.create({
     /**Styling node */
+    mapView: {
+        width: "100%",
+        marginBottom: 10,
+        flex: 4.5,
+    },
     node: {
         backgroundColor: "black",
         borderRadius: 10,

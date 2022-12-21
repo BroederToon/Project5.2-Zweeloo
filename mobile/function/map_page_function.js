@@ -109,7 +109,7 @@ const GetMapPage = (routeId, hasLocation) => {
                 <StatusBar />
             ) : (
                 <MapView
-                    style={styles.bottomLayout}
+                    style={map.mapView}
                     showsUserLocation={hasLocation}
                     showsMyLocationButton={hasLocation}
                     initialRegion={{
