@@ -32,13 +32,11 @@ const GetMapPage = (routeId, hasLocation) => {
 
         const json = await response.json();
         setData(json);
-        // console.log(data.route);
     }, []);
 
     //go to the poi page with the given id.
     const onMarkerClick = (id) => {
-        console.log(id);
-        // nav.navigate("poi_page", { poiId: id });
+        nav.navigate("PointOfInterestInfoPage", { poiId: id });
     };
 
     //return the require with an image for a specific type of poi
