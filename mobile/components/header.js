@@ -7,12 +7,13 @@ import Line from "../components/line";
 export default function Header(props) {
     const nav = useNavigation();
     return (
-        <View style={styles.upperLayout}>
+        <View style={[styles.header, props.disableLogo ? {flex: 0.5,} : null]}>
             {/* Zweeloo logo */}
-            <Image
-                source={require("../assets/logohighres.png")}
-                style={{ marginTop: 15 }}
-            />
+            {props.disableLogo ? null : (
+                <Image
+                    source={require("../assets/logohighres.png")}
+                />
+            )}
             {/* The header bar with the back button and page title */}
             <View style={styles.headerTitle}>
                 {/* Back button */}
@@ -20,7 +21,9 @@ export default function Header(props) {
                     <FontAwesome5 name="arrow-left" size={24} color="#e2030f" />
                 </Pressable>
                 {/* The page title */}
-                <Text style={styles.title} numberOfLines={1}>{props.pageName}</Text>
+                <Text style={styles.title} numberOfLines={1}>
+                    {props.pageName}
+                </Text>
             </View>
             <Line />
         </View>

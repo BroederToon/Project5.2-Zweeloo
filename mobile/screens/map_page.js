@@ -5,6 +5,8 @@ import GetMapPage from "../function/map_page_function";
 import { map } from "../styles/map_page_styles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import Header from "../components/header";
+import Border from "../components/border";
 
 const MapPage = (navigate) => {
     //Is true, for the user location on the map
@@ -14,19 +16,23 @@ const MapPage = (navigate) => {
 
     return (
         <View style={styles.layout}>
-            {GetMapPage(navigate.route.params.routeId, hasLocation)}
-            <Pressable
-                style={map.pauseButton}
-                onPress={() => console.log("pauzeer")}
-            >
-                <MaterialIcons name="pause" size={30} color="white" />
-            </Pressable>
-            <Pressable
-                style={map.stopButton}
-                onPress={() => console.log("De route gaat stoppen")}
-            >
-                <Entypo name="cross" size={30} color="white" />
-            </Pressable>
+            <Border />
+            <Header pageName={navigate.route.params.name} disableLogo={true} />
+            <View style={styles.body}>
+                {GetMapPage(navigate.route.params.routeId, hasLocation)}
+                <Pressable
+                    style={map.pauseButton}
+                    onPress={() => console.log("pauzeer")}
+                >
+                    <MaterialIcons name="pause" size={30} color="white" />
+                </Pressable>
+                <Pressable
+                    style={map.stopButton}
+                    onPress={() => console.log("De route gaat stoppen")}
+                >
+                    <Entypo name="cross" size={30} color="white" />
+                </Pressable>
+            </View>
         </View>
     );
 };

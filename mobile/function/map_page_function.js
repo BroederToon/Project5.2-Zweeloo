@@ -35,8 +35,8 @@ const GetMapPage = (routeId, hasLocation) => {
     }, []);
 
     //go to the poi page with the given id.
-    const onMarkerClick = (id) => {
-        nav.navigate("PointOfInterestInfoPage", { poiId: id });
+    const onMarkerClick = (name, id) => {
+        nav.navigate("PointOfInterestInfoPage", { name: name, poiId: id });
     };
 
     //return the require with an image for a specific type of poi
@@ -69,7 +69,7 @@ const GetMapPage = (routeId, hasLocation) => {
                         latitude: parseFloat(data.poi[i].lat),
                         longitude: parseFloat(data.poi[i].lon),
                     }}
-                    onPress={() => onMarkerClick(data.poi[i].id)}
+                    onPress={() => onMarkerClick(data.poi[i].name, data.poi[i].id)}
                 >
                     <Image
                         style={map.logo}
@@ -102,35 +102,28 @@ const GetMapPage = (routeId, hasLocation) => {
     };
 
     //show the map and show the route and the markers
+    if (isLoading) return <StatusBar />;
+
     return (
-        <View style={styles.innerLayout}>
-            <Header pageName={data.name}/>
-            {isLoading ? (
-                <StatusBar />
-            ) : (
-                <MapView
-                    style={map.mapView}
-                    showsUserLocation={hasLocation}
-                    showsMyLocationButton={hasLocation}
-                    initialRegion={{
-                        latitude:
-                            data.route.features[0].geometry.coordinates[0][1],
-                        longitude:
-                            data.route.features[0].geometry.coordinates[0][0],
-                        latitudeDelta: 0.015,
-                        longitudeDelta: 0.01,
-                    }}
-                >
-                    <Geojson
-                        geojson={data.route}
-                        strokeColor="red"
-                        fillColor="green"
-                        strokeWidth={4}
-                    />
-                    {getMarkers()}
-                </MapView>
-            )}
-        </View>
+        <MapView
+            style={map.mapView}
+            showsUserLocation={hasLocation}
+            showsMyLocationButton={hasLocation}
+            initialRegion={{
+                latitude: data.route.features[0].geometry.coordinates[0][1],
+                longitude: data.route.features[0].geometry.coordinates[0][0],
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.01,
+            }}
+        >
+            <Geojson
+                geojson={data.route}
+                strokeColor="red"
+                fillColor="green"
+                strokeWidth={4}
+            />
+            {getMarkers()}
+        </MapView>
     );
 };
 

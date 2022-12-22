@@ -73,19 +73,17 @@ export const showPoiInfo = (poiId) => {
     //return all the information of the poi that has been clicked
     return (
         <View style={poiInfo.layout}>
-            <View style={styles.inlineIconText}>
-                <Text style={poiInfo.poiTitle}>{data.name}</Text>
-                <Feather
-                    name="volume-2"
-                    size={30}
-                    color="black"
-                    style={{
-                        position: "absolute",
-                        left: 225,
-                    }}
-                />
-            </View>
             {showPoiImage()}
+            <Feather
+                name="volume-2"
+                size={30}
+                color="black"
+                style={{
+                    position: "absolute",
+                    top: 10,
+                    left: -15,
+                }}
+            />
             <Text style={{ fontSize: 15, marginTop: 10 }}>
                 {data.description}
             </Text>

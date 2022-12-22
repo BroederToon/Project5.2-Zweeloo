@@ -1,14 +1,15 @@
-import { View, ScrollView } from "react-native";
 import { styles } from "../styles/basic_styles";
-import { GetSponsors } from "../function/get_sponsors";
+import { View, ScrollView } from "react-native";
+import { showPoiInfo } from "../function/poi_info_page_functions";
 import Header from "../components/header";
 import Border from "../components/border";
 
-const SponsorPage = () => {
+//the component which is needed to show the poi information.
+const PointOfInterestInfoPage = (navigate) => {
     return (
         <View style={styles.layout}>
             <Border />
-            <Header pageName="Sponsoren" />
+            <Header pageName={navigate.route.params.name} />
             <View style={styles.body}>
                 <ScrollView
                     contentContainerStyle={{
@@ -17,16 +18,12 @@ const SponsorPage = () => {
                         alignItems: "center",
                         flexDirection: "column",
                     }}
-                    style={{
-                        width: "100%",
-                    }}
                 >
-                    {/* Generate the sponsor tiles */}
-                    {GetSponsors()}
+                    {showPoiInfo(navigate.route.params.poiId)}
                 </ScrollView>
             </View>
         </View>
     );
 };
 
-export default SponsorPage;
+export default PointOfInterestInfoPage;

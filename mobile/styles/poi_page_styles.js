@@ -8,8 +8,6 @@ export const poiInfo = StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 5,
         paddingTop: 10,
-        borderTopColor: "#FFF5D2",
-        borderWidth: 5,
         borderLeftWidth: 0,
         borderRightWidth: 0,
         borderBottomWidth: 0,
@@ -25,7 +23,6 @@ export const poiInfo = StyleSheet.create({
     },
     /**image base */
     poiImage: {
-        marginTop: 25,
         maxWidth: "100%",
         borderWidth: 1,
         borderColor: "black",

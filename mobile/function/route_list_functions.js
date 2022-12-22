@@ -10,6 +10,7 @@ import {
 import { Pressable, Text, View, ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { IP } from "@env";
+import Line from "../components/line";
 
 /**
  * @returns the retrieved content and the styling
@@ -86,7 +87,7 @@ export const GetRouteInformation = (apiCallParameter) => {
                         <Entypo name="direction" size={30} color="black" />
                         <Text style={card.routeSubTitle}>{route.distance}</Text>
                     </View>
-                    <View style={card.bottomLayout} />
+                    <View style={card.body} />
                     <Text style={card.routeText} numberOfLines={6}>
                         {route.description}
                     </Text>
@@ -109,6 +110,7 @@ export const GetRouteInformation = (apiCallParameter) => {
                                 style={card.cardButton}
                                 onPress={() =>
                                     nav.navigate("SeeRoute", {
+                                        name: route.name,
                                         routeId: route.id,
                                     })
                                 }
@@ -118,6 +120,7 @@ export const GetRouteInformation = (apiCallParameter) => {
                         </View>
                     </View>
                 </View>
+                <Line />
             </React.Fragment>
         );
     });

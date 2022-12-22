@@ -8,8 +8,6 @@ export const card = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
         paddingTop: 10,
-        borderTopColor: "#FFF5D2",
-        borderWidth: 5,
         borderLeftWidth: 0,
         borderRightWidth: 0,
         borderBottomWidth: 0,
@@ -29,7 +27,7 @@ export const card = StyleSheet.create({
         paddingLeft: 5,
     },
     /**Bottom layout of card */
-    bottomLayout: {
+    body: {
         backgroundColor: "#e2030f",
         height: 3,
     },

@@ -6,29 +6,31 @@ export const styles = StyleSheet.create({
         flex: 6,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFF5D2",
+        backgroundColor: "#FFEFB9",
         margin: 0,
         padding: 0,
     },
-    /*Main innerlayout*/
-    innerLayout: {
-        flex: 6,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#FFEFB9",
-        marginTop: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        marginBottom: 0,
-        padding: 0,
-        width: "90%",
-    },
-    upperLayout: {
+    /*Border*/
+    border: {
+        // flex: 6,
+        position: "absolute",
         width: "100%",
+        height: "100%",
+        borderWidth: 20,
+        borderColor: "#FFF5D2",
+    },
+    header: {
+        width: "90%",
         alignItems: "center",
         padding: 0,
         margin: 0,
         flex: 1.5,
+        paddingTop: 20,
+    },
+    body: {
+        width: "90%",
+        flex: 4.5,
+        marginBottom: 20,
     },
     /**Main header and titles */
     headerTitle: {
@@ -46,10 +48,5 @@ export const styles = StyleSheet.create({
         left: -40,
         top: 9,
     },
-    /**Bottom layout */
-    bottomLayout: {
-        width: "100%",
-        flex: 4.5,
-        marginBottom: 10,
-    },
+    
 });
