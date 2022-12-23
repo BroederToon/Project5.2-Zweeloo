@@ -1,13 +1,15 @@
 import { StyleSheet } from "react-native";
 
 export const lineStyle = StyleSheet.create({
+    // Style for the dividing line
     line: {
         backgroundColor: "#FFF5D2",
         width: "85%",
         height: 6,
         position: "relative",
-        marginBottom: 25,
+        marginBottom: 15,
     },
+    // The diamonds on the ends of the line
     diamondLeft: {
         backgroundColor: "#FFF5D2",
         width: 16,

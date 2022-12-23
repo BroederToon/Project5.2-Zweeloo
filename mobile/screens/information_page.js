@@ -11,7 +11,6 @@ const Information_page = () => {
             <Border />
             <Header pageName="Informatie" />
             <View style={styles.body}>
-                <Text style={styles.title}>Information</Text>
                 <Pressable
                     style={{ width: 100, height: 50 }}
                     onPress={() => nav.navigate("SponsorPage")}

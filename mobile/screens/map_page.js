@@ -1,4 +1,4 @@
-import { View, Pressable, Text } from "react-native";
+import { View, Pressable } from "react-native";
 import { styles } from "../styles/basic_styles";
 import FollowLocation from "../function/follow_location";
 import GetMapPage from "../function/map_page_function";

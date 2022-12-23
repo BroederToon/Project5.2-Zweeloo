@@ -28,6 +28,8 @@ export const GetSponsors = () => {
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     }, [fetchData]);
+    
+    console.log("Loading sponsor data");
 
     //If the data is still loading return an activityindicator
     if (isLoading) {

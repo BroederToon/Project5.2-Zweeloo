@@ -1,4 +1,3 @@
-import { styles } from "../styles/basic_styles";
 import { poiInfo } from "../styles/poi_page_styles";
 import React, { useEffect, useState, useCallback } from "react";
 import { Feather } from "@expo/vector-icons";

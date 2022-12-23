@@ -7,7 +7,7 @@ import Line from "../components/line";
 export default function Header(props) {
     const nav = useNavigation();
     return (
-        <View style={[styles.header, props.disableLogo ? {flex: 0.5,} : null]}>
+        <View style={[styles.header, props.disableLogo ? {flex: 0.55,} : null]}>
             {/* Zweeloo logo */}
             {props.disableLogo ? null : (
                 <Image

@@ -1,7 +1,6 @@
 import { styles } from "../styles/basic_styles";
 import { GetRouteInformation } from "../function/route_list_functions";
-import { Text, View, Image, ScrollView, Pressable } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { View, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../components/header";
 import Border from "../components/border";
@@ -25,6 +24,9 @@ const Route_list = (navigate) => {
                         margin: 0,
                         alignItems: "center",
                         flexDirection: "column",
+                    }}
+                    style={{
+                        width: "100%",
                     }}
                 >
                     {GetRouteInformation(navigate.route.params.apiCalled)}

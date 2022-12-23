@@ -1,4 +1,4 @@
-import { Text, View, Pressable, Image } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../styles/basic_styles";
 import { type } from "../styles/route-type-style";

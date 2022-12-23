@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     },
     /*Border*/
     border: {
-        // flex: 6,
         position: "absolute",
         width: "100%",
         height: "100%",
@@ -24,29 +23,33 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         padding: 0,
         margin: 0,
-        flex: 1.5,
+        flex: 1.4,
         paddingTop: 20,
     },
     body: {
         width: "90%",
-        flex: 4.5,
+        flex: 4.6,
         marginBottom: 20,
+        alignItems: "center",
     },
     /**Main header and titles */
     headerTitle: {
         flexDirection: "row",
         alignItems: "center",
+        justifyContent: "center",
         position: "relative",
         marginVertical: 10,
+        width: "100%",
     },
     title: {
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: "600",
+        width: "80%",
+        height: 35,
+        textAlign: "center",
     },
     backBtn: {
         position: "absolute",
-        left: -40,
-        top: 9,
+        left: 7,
     },
-    
 });

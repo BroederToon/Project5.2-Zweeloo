@@ -5,37 +5,38 @@ export const card = StyleSheet.create({
     layout: {
         flex: 1,
         backgroundColor: "#FFEFB9",
-        paddingLeft: 30,
-        paddingRight: 30,
-        paddingTop: 10,
-        borderLeftWidth: 0,
-        borderRightWidth: 0,
-        borderBottomWidth: 0,
-        height: "100%",
-        width: "90%",
+        marginBottom: 15,
+        width: "80%",
+    },
+    titleHolder: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
     },
     routeTitle: {
+        flex: 1,
         fontSize: 30,
         fontWeight: "500",
         padding: 0,
         margin: 0,
     },
     routeSubTitle: {
+        width: "100%",
         fontSize: 15,
         paddingTop: 5,
         paddingBottom: 5,
         paddingLeft: 5,
     },
     /**Bottom layout of card */
-    body: {
+    line: {
         backgroundColor: "#e2030f",
         height: 3,
     },
     routeText: {
-        fontSize: 11,
+        fontSize: 13,
         marginTop: 10,
-        height: 78,
-        lineHeight: 13,
+        height: 67,
+        lineHeight: 15,
     },
     /**card button */
     cardButton: {
@@ -57,8 +58,7 @@ export const card = StyleSheet.create({
         borderWidth: 2,
         borderColor: "black",
         borderRadius: 5,
-        marginTop: 10,
-        marginBottom: 20,
+        marginVertical: 10,
         justifyContent: "center",
         alignItems: "center",
         height: 40,
