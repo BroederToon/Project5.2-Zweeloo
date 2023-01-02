@@ -19,19 +19,22 @@ const GetMapPage = (routeId, hasLocation) => {
 
     //fetch the data and catch errors
     useEffect(() => {
-        fetchData()
+        // fetchData()
+        fetch(`${IP}/api/routes/route/${routeId}`)
+            .then((response) => response.json())
+            .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, [fetchData]);
+    });
 
     //Fetching the data from the api.
-    const fetchData = useCallback(async () => {
-        const response = await fetch(`${IP}/api/routes/route/${routeId}`);
+    // const fetchData = useCallback(async () => {
+    //     const response = await fetch(`${IP}/api/routes/route/${routeId}`);
 
-        const json = await response.json();
-        setData(json);
-        console.log(json);
-    }, []);
+    //     const json = await response.json();
+    //     setData(json);
+    //     console.log(json);
+    // }, []);
 
     //go to the poi page with the given id.
     const onMarkerClick = (name, id) => {
@@ -68,7 +71,9 @@ const GetMapPage = (routeId, hasLocation) => {
                         latitude: parseFloat(data.poi[i].lat),
                         longitude: parseFloat(data.poi[i].lon),
                     }}
-                    onPress={() => onMarkerClick(data.poi[i].name, data.poi[i].id)}
+                    onPress={() =>
+                        onMarkerClick(data.poi[i].name, data.poi[i].id)
+                    }
                 >
                     <Image
                         style={map.logo}

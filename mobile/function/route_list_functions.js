@@ -1,5 +1,4 @@
 import { card } from "../styles/route_card_styles";
-import { styles } from "../styles/basic_styles";
 import React, { useEffect, useState, useCallback } from "react";
 import {
     Feather,
@@ -25,28 +24,31 @@ export const GetRouteInformation = (apiCallParameter) => {
 
     //make a component called fetchData with a useCallback function of react and set it async
     //useCallback is used once an action needs to be called several times before sending it of for use
-    const fetchData = useCallback(async () => {
-        //api call
-        const response = await fetch(`${IP}/api/routes/${apiCallParameter}`);
+    // const fetchData = useCallback(async () => {
+    //     //api call
+    //     const response = await fetch(`${IP}/api/routes/${apiCallParameter}`);
 
-        //set the reponse of the api call to json
-        const json = await response.json();
+    //     //set the reponse of the api call to json
+    //     const json = await response.json();
 
-        setData(json);
-        console.log(json);
-    }, []);
+    //     setData(json);
+    //     console.log(json);
+    // }, []);
 
-    console.log("Loading routes");
+    // console.log("Loading routes");
 
     //useEffect is a react function which is immediately used
     //it's called everytime there is new data, but also instantly sends data
     //that's why the useCallback function is used so that doesn't happen
     useEffect(() => {
         //call fetch data and show the error if it is has errors and setLoading to false
-        fetchData()
+        // fetchData()
+        fetch(`${IP}/api/routes/${apiCallParameter}`)
+            .then((response) => response.json())
+            .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, [fetchData]);
+    });
 
     //if true return loadscreen at the top
     if (isLoading) {
