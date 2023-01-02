@@ -33,7 +33,7 @@ const Route_type_page = () => {
                             name="bicycle"
                             size={105}
                             color="black"
-                            style={type.icon}
+                            style={routeType.icon}
                         />
 
                         <Text style={routeType.buttonText}>Fietsroutes</Text>
