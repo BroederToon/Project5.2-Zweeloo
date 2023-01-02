@@ -1,7 +1,7 @@
 import { poiInfo } from "../styles/poi_page_styles";
 import React, { useEffect, useState, useCallback } from "react";
 import { Feather } from "@expo/vector-icons";
-import { Text, View, Image, ActivityIndicator } from "react-native";
+import { Text, View, Image, ActivityIndicator, Pressable } from "react-native";
 import { IP } from "@env";
 
 /**
@@ -21,6 +21,7 @@ export const showPoiInfo = (poiId) => {
         const json = await response.json();
 
         setData(json);
+        console.log(json);
     }, []);
 
     //use the fetchData and check on the errors within and then call it
@@ -73,17 +74,17 @@ export const showPoiInfo = (poiId) => {
     return (
         <View style={poiInfo.layout}>
             {showPoiImage()}
-            <Feather
-                name="volume-2"
-                size={30}
-                color="black"
+            <Pressable
                 style={{
-                    position: "absolute",
-                    top: 10,
-                    left: -15,
+                    marginTop: 5,
+                    flexDirection: "row",
+                    alignItems: "center",
                 }}
-            />
-            <Text style={{ fontSize: 15, marginTop: 10 }}>
+            >
+                <Feather name="volume-2" size={30} color="black" />
+                <Text style={{marginLeft: 5, textDecorationLine:"underline"}}>Lees voor</Text>
+            </Pressable>
+            <Text style={{ fontSize: 15, marginTop: 5 }}>
                 {data.description}
             </Text>
         </View>

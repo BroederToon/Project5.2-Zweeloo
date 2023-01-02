@@ -4,6 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import Border from "../components/border";
 import Header from "../components/header";
 
+/**
+ * The information page of the app
+ * @implements the basic styles and useNavigation
+ * @returns the information page
+ */
 const Information_page = () => {
     const nav = useNavigation();
     return (

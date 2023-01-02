@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    /*Main layout*/
+    // Main layout
     layout: {
         flex: 6,
         justifyContent: "center",
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         margin: 0,
         padding: 0,
     },
-    /*Border*/
+    // Border
     border: {
         position: "absolute",
         width: "100%",
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: "center",
     },
-    /**Main header and titles */
+    // Main header and titles
     headerTitle: {
         flexDirection: "row",
         alignItems: "center",

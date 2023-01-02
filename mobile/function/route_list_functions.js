@@ -33,6 +33,7 @@ export const GetRouteInformation = (apiCallParameter) => {
         const json = await response.json();
 
         setData(json);
+        console.log(json);
     }, []);
 
     console.log("Loading routes");

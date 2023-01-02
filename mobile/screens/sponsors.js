@@ -4,6 +4,11 @@ import { GetSponsors } from "../function/get_sponsors";
 import Header from "../components/header";
 import Border from "../components/border";
 
+/**
+ * The page with the sponsor overview
+ * @implements the basic styles and GetSponsors
+ * @returns the sponsor page
+ */
 const SponsorPage = () => {
     return (
         <View style={styles.layout}>

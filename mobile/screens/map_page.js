@@ -8,6 +8,11 @@ import { Entypo } from "@expo/vector-icons";
 import Header from "../components/header";
 import Border from "../components/border";
 
+/**
+ * The page where a user can follow a route
+ * @implements the basic and map styles, GetMapPage and FollowLocation
+ * @returns the follow route page
+ */
 const MapPage = (navigate) => {
     //Is true, for the user location on the map
     const hasLocation = true;

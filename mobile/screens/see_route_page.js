@@ -6,6 +6,11 @@ import { useNavigation } from "@react-navigation/native";
 import Header from "../components/header";
 import Border from "../components/border";
 
+/**
+ * The page where the user can view a map and start a route
+ * @implements the basic and see_route styles, GetMapPage and useNavigation
+ * @returns the route overview page
+ */
 const SeeRoutePage = (navigate) => {
     const nav = useNavigation();
 

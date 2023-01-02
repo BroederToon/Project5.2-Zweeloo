@@ -1,18 +1,15 @@
 import { styles } from "../styles/basic_styles";
 import { GetRouteInformation } from "../function/route_list_functions";
 import { View, ScrollView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import Header from "../components/header";
 import Border from "../components/border";
 
 /**
- * importing the basic styles and importing the function called GetRouteInformation
- * setting the basic layout for the page and exporting it at the end
+ * Sets the basic layout for the page and loads in all routes
+ * @implements the basic styles and the function GetRouteInformation
  * @returns all the displayable views of the page
  */
 const Route_list = (navigate) => {
-    const nav = useNavigation();
-
     return (
         <View style={styles.layout}>
             <Border />

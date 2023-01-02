@@ -7,12 +7,12 @@ import Line from "../components/line";
 export default function Header(props) {
     const nav = useNavigation();
     return (
-        <View style={[styles.header, props.disableLogo ? {flex: 0.55,} : null]}>
+        <View
+            style={[styles.header, props.disableLogo ? { flex: 0.55 } : null]}
+        >
             {/* Zweeloo logo */}
             {props.disableLogo ? null : (
-                <Image
-                    source={require("../assets/logohighres.png")}
-                />
+                <Image source={require("../assets/logohighres.png")} />
             )}
             {/* The header bar with the back button and page title */}
             <View style={styles.headerTitle}>

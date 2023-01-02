@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const card = StyleSheet.create({
-    /**Main card layout and titles */
+    // Main card layout and titles
     layout: {
         flex: 1,
         backgroundColor: "#FFEFB9",
@@ -27,7 +27,7 @@ export const card = StyleSheet.create({
         paddingBottom: 5,
         paddingLeft: 5,
     },
-    /**Bottom layout of card */
+    // Bottom layout of card
     line: {
         backgroundColor: "#e2030f",
         height: 3,
@@ -38,7 +38,7 @@ export const card = StyleSheet.create({
         height: 67,
         lineHeight: 15,
     },
-    /**card button */
+    // card button
     cardButton: {
         backgroundColor: "#FFEFB9",
         borderWidth: 2,

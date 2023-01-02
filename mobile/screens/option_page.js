@@ -3,6 +3,10 @@ import { Text, View } from "react-native";
 import Border from "../components/border";
 import Header from "../components/header";
 
+/**
+ * The with the app settings
+ * @returns the settigs page
+ */
 const Option_page = () => {
     return (
         <View style={styles.layout}>

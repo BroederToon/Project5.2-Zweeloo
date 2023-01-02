@@ -4,7 +4,11 @@ import { showPoiInfo } from "../function/poi_info_page_functions";
 import Header from "../components/header";
 import Border from "../components/border";
 
-//the component which is needed to show the poi information.
+/**
+ * The page where the information of a POI is displayed
+ * @implements the basic styles, showPoiInfo
+ * @returns the POI info page
+ */
 const PointOfInterestInfoPage = (navigate) => {
     return (
         <View style={styles.layout}>
@@ -17,6 +21,9 @@ const PointOfInterestInfoPage = (navigate) => {
                         margin: 0,
                         alignItems: "center",
                         flexDirection: "column",
+                    }}
+                    style={{
+                        width: "100%",
                     }}
                 >
                     {showPoiInfo(navigate.route.params.poiId)}

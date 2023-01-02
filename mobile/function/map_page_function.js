@@ -30,6 +30,7 @@ const GetMapPage = (routeId, hasLocation) => {
 
         const json = await response.json();
         setData(json);
+        console.log(json);
     }, []);
 
     //go to the poi page with the given id.

@@ -5,14 +5,15 @@ export const see_route = StyleSheet.create({
     buttons: {
         width: "100%",
         alignItems: "center",
+        position: "absolute",
+        bottom: 50,
     },
     // Pressable Start Route 
     startButton: {
         marginBottom: 20,
         position: "absolute",
         backgroundColor: "#004284",
-        paddingBottom: 7,
-        paddingTop: 7,
+        paddingVertical: 7,
         width: 200,
         borderRadius: 10,
         bottom: 70,
@@ -21,8 +22,7 @@ export const see_route = StyleSheet.create({
     backButton: {
         position: "absolute",
         backgroundColor: "#e41d18",
-        paddingBottom: 7,
-        paddingTop: 7,
+        paddingVertical: 7,
         width: 200,
         borderRadius: 10,
         bottom: 40,
