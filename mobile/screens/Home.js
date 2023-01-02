@@ -5,6 +5,11 @@ import GetLocationPermission from "../function/location_permission";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
+/**
+ * The home page of the app
+ * @implements the basic and home styles, useNavigation and GetLocationPermission
+ * @returns the home page
+ */
 const Home = () => {
     const nav = useNavigation();
     GetLocationPermission();

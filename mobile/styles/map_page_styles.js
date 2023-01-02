@@ -1,13 +1,11 @@
 import { StyleSheet } from "react-native";
 
 export const map = StyleSheet.create({
-    /**Styling map*/
+    // Styling node
     mapView: {
         width: "100%",
-        height: "90%",
-        marginBottom: 10,
+        flex: 4.5,
     },
-    /**Styling node */
     node: {
         backgroundColor: "black",
         borderRadius: 10,
@@ -18,12 +16,12 @@ export const map = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 15,
     },
-    /**Styling logo */
+    // Styling logo
     logo: {
         width: 50,
         height: 50,
     },
-    /**Styling pause button */
+    // Styling pause button
     pauseButton: {
         position: "absolute",
         bottom: 90,
@@ -32,7 +30,7 @@ export const map = StyleSheet.create({
         padding: 7,
         borderRadius: 30,
     },
-    /**Styling stop button */
+    // Styling stop button
     stopButton: {
         position: "absolute",
         bottom: 40,

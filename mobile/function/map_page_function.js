@@ -1,11 +1,9 @@
-import { Text, View, Image, Pressable } from "react-native";
+import { Text, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { styles } from "../styles/basic_styles";
 import MapView, { Geojson, Marker } from "react-native-maps";
 import { map } from "../styles/map_page_styles";
 import { useCallback, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { IP } from "@env";
 
 /**
@@ -32,11 +30,12 @@ const GetMapPage = (routeId, hasLocation) => {
 
         const json = await response.json();
         setData(json);
+        console.log(json);
     }, []);
 
     //go to the poi page with the given id.
-    const onMarkerClick = (id) => {
-        nav.navigate("PointOfInterestInfoPage", { poiId: id });
+    const onMarkerClick = (name, id) => {
+        nav.navigate("PointOfInterestInfoPage", { name: name, poiId: id });
     };
 
     //return the require with an image for a specific type of poi
@@ -69,7 +68,7 @@ const GetMapPage = (routeId, hasLocation) => {
                         latitude: parseFloat(data.poi[i].lat),
                         longitude: parseFloat(data.poi[i].lon),
                     }}
-                    onPress={() => onMarkerClick(data.poi[i].id)}
+                    onPress={() => onMarkerClick(data.poi[i].name, data.poi[i].id)}
                 >
                     <Image
                         style={map.logo}
@@ -102,55 +101,28 @@ const GetMapPage = (routeId, hasLocation) => {
     };
 
     //show the map and show the route and the markers
+    if (isLoading) return <StatusBar />;
+
     return (
-        <View style={styles.innerLayout}>
-            <View style={styles.upperLayout}>
-                <View style={styles.headerPage}>
-                    <View style={styles.inlineIconText}>
-                        <Pressable
-                            style={{
-                                position: "absolute",
-                                left: -40,
-                                top: 30,
-                            }}
-                            onPress={() => nav.goBack()}
-                        >
-                            <FontAwesome5
-                                name="arrow-left"
-                                size={24}
-                                color="#e2030f"
-                            />
-                        </Pressable>
-                        <Text style={styles.title}>{data.name}</Text>
-                    </View>
-                </View>
-            </View>
-            {isLoading ? (
-                <StatusBar />
-            ) : (
-                <MapView
-                    style={map.mapView}
-                    showsUserLocation={hasLocation}
-                    showsMyLocationButton={hasLocation}
-                    initialRegion={{
-                        latitude:
-                            data.route.features[0].geometry.coordinates[0][1],
-                        longitude:
-                            data.route.features[0].geometry.coordinates[0][0],
-                        latitudeDelta: 0.015,
-                        longitudeDelta: 0.01,
-                    }}
-                >
-                    <Geojson
-                        geojson={data.route}
-                        strokeColor="red"
-                        fillColor="green"
-                        strokeWidth={4}
-                    />
-                    {getMarkers()}
-                </MapView>
-            )}
-        </View>
+        <MapView
+            style={map.mapView}
+            showsUserLocation={hasLocation}
+            showsMyLocationButton={hasLocation}
+            initialRegion={{
+                latitude: data.route.features[0].geometry.coordinates[0][1],
+                longitude: data.route.features[0].geometry.coordinates[0][0],
+                latitudeDelta: 0.015,
+                longitudeDelta: 0.01,
+            }}
+        >
+            <Geojson
+                geojson={data.route}
+                strokeColor="red"
+                fillColor="green"
+                strokeWidth={4}
+            />
+            {getMarkers()}
+        </MapView>
     );
 };
 

@@ -1,56 +1,55 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    /*Main layout*/
+    // Main layout
     layout: {
         flex: 6,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFF5D2",
-        margin: 0,
-        padding: 0,
-    },
-    /*Main innerlayout*/
-    innerLayout: {
-        flex: 6,
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "#FFEFB9",
-        marginTop: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        marginBottom: 0,
-        padding: 0,
-        width: "90%",
-    },
-    upperLayout: {
-        width: "100%",
-        padding: 0,
         margin: 0,
-        flex: 1.5,
+        padding: 0,
     },
-    /**Main header and titles */
-    headerPage: {
+    // Border
+    border: {
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        borderWidth: 20,
+        borderColor: "#FFF5D2",
+    },
+    header: {
+        width: "90%",
         alignItems: "center",
         padding: 0,
+        margin: 0,
+        flex: 1.4,
+        paddingTop: 20,
+    },
+    body: {
+        width: "90%",
+        flex: 4.6,
+        marginBottom: 20,
+        alignItems: "center",
+    },
+    // Main header and titles
+    headerTitle: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        marginVertical: 10,
         width: "100%",
     },
     title: {
-        fontSize: 30,
-        paddingTop: 20,
+        fontSize: 20,
         fontWeight: "600",
+        width: "80%",
+        height: 35,
+        textAlign: "center",
     },
-    inlineIconText: {
-        paddingVertical: 0,
-        paddingHorizontal: 0,
-        flexDirection: "row",
-        alignItems: "center",
-        position: "relative",
-    },
-    /**Bottom layout */
-    bottomLayout: {
-        width: "100%",
-        flex: 4.5,
-        marginBottom: 10,
+    backBtn: {
+        position: "absolute",
+        left: 7,
     },
 });

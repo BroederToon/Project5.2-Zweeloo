@@ -1,20 +1,20 @@
 import { StyleSheet } from "react-native";
 
-/* Styling for the home page */
+// Styling for the home page
 export const home = StyleSheet.create({
-    /* Background image */
+    // Background image
     background: {
         width: "100%",
         height: "100%",
         position: "relative",
         alignItems: "center",
     },
-    /* Logo overlay */
+    // Logo overlay
     logo: {
         position: "absolute",
         top: 50,
     },
-    /* Overlay background for the text */
+    // verlay background for the text
     textOverlayBg: {
         backgroundColor: "rgba(255, 239, 185, 0.75)",
         position: "absolute",
@@ -26,14 +26,14 @@ export const home = StyleSheet.create({
         alignItems: "center",
         padding: 5,
     },
-    /* Text in the overlay */
+    // Text in the overlay
     textOverlay: {
         textAlign: "center",
         fontWeight: "500",
         fontSize: 15,
         color: "#00427D"
     },
-    /* Background for the start button */
+    // Background for the start button
     startBar: {
         backgroundColor: "#FFEFB9",
         position: "absolute",
@@ -44,7 +44,7 @@ export const home = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    /* Start button */
+    // Start button
     startBtn: {
         width: "60%",
         borderWidth: 3,
@@ -54,7 +54,7 @@ export const home = StyleSheet.create({
         justifyContent: "center",
         flexDirection: "row",
     },
-    /* Text in the start button */
+    // Text in the start button
     startBtnText: {
         textTransform: "uppercase",
         fontWeight: "bold",

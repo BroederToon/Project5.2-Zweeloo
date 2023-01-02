@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-export const type = StyleSheet.create({
-    /**styling for the buttons */
+export const routeType = StyleSheet.create({
+    // styling for the buttons
     buttons: {
         flexDirection: "row",
         flex: 2,
@@ -15,18 +15,18 @@ export const type = StyleSheet.create({
         alignItems: "center",
         paddingTop: "10%",
     },
-    /**Text in the button */
+    // Text in the button
     buttonText: {
         fontSize: 20,
         fontWeight: "bold",
         height: "30%",
     },
-    /**Icon in the button */
+    // Icon in the button
     icon: {
         alignSelf: "center",
         height: "70%",
     },
-    /**Styling info */
+    // Styling info
     info: {
         flex: 1.5,
         width: "80%",

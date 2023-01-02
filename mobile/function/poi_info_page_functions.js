@@ -1,8 +1,7 @@
-import { styles } from "../styles/basic_styles";
 import { poiInfo } from "../styles/poi_page_styles";
 import React, { useEffect, useState, useCallback } from "react";
 import { Feather } from "@expo/vector-icons";
-import { Text, View, Image, ActivityIndicator } from "react-native";
+import { Text, View, Image, ActivityIndicator, Pressable } from "react-native";
 import { IP } from "@env";
 
 /**
@@ -22,6 +21,7 @@ export const showPoiInfo = (poiId) => {
         const json = await response.json();
 
         setData(json);
+        console.log(json);
     }, []);
 
     //use the fetchData and check on the errors within and then call it
@@ -73,20 +73,18 @@ export const showPoiInfo = (poiId) => {
     //return all the information of the poi that has been clicked
     return (
         <View style={poiInfo.layout}>
-            <View style={styles.inlineIconText}>
-                <Text style={poiInfo.poiTitle}>{data.name}</Text>
-                <Feather
-                    name="volume-2"
-                    size={30}
-                    color="black"
-                    style={{
-                        position: "absolute",
-                        left: 225,
-                    }}
-                />
-            </View>
             {showPoiImage()}
-            <Text style={{ fontSize: 15, marginTop: 10 }}>
+            <Pressable
+                style={{
+                    marginTop: 5,
+                    flexDirection: "row",
+                    alignItems: "center",
+                }}
+            >
+                <Feather name="volume-2" size={30} color="black" />
+                <Text style={{marginLeft: 5, textDecorationLine:"underline"}}>Lees voor</Text>
+            </Pressable>
+            <Text style={{ fontSize: 15, marginTop: 5 }}>
                 {data.description}
             </Text>
         </View>

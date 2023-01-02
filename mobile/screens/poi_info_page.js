@@ -1,19 +1,19 @@
 import { styles } from "../styles/basic_styles";
-import { GetRouteInformation } from "../function/route_list_functions";
 import { View, ScrollView } from "react-native";
+import { showPoiInfo } from "../function/poi_info_page_functions";
 import Header from "../components/header";
 import Border from "../components/border";
 
 /**
- * Sets the basic layout for the page and loads in all routes
- * @implements the basic styles and the function GetRouteInformation
- * @returns all the displayable views of the page
+ * The page where the information of a POI is displayed
+ * @implements the basic styles, showPoiInfo
+ * @returns the POI info page
  */
-const Route_list = (navigate) => {
+const PointOfInterestInfoPage = (navigate) => {
     return (
         <View style={styles.layout}>
             <Border />
-            <Header pageName="Kies een route" />
+            <Header pageName={navigate.route.params.name} />
             <View style={styles.body}>
                 <ScrollView
                     contentContainerStyle={{
@@ -26,11 +26,11 @@ const Route_list = (navigate) => {
                         width: "100%",
                     }}
                 >
-                    {GetRouteInformation(navigate.route.params.apiCalled)}
+                    {showPoiInfo(navigate.route.params.poiId)}
                 </ScrollView>
             </View>
         </View>
     );
 };
 
-export default Route_list;
+export default PointOfInterestInfoPage;

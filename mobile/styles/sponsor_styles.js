@@ -4,8 +4,8 @@ export const sponsors = StyleSheet.create({
     // Each sponsor tile
     card: {
         height: 250,
-        width: "85%",
-        marginBottom: 10,
+        width: "80%",
+        marginBottom: 15,
     },
     // The image in the tile
     image: {
@@ -16,6 +16,7 @@ export const sponsors = StyleSheet.create({
     },
     // The name of the sponsor
     title: {
+        width: "100%",
         fontSize: 20,
         fontWeight: "bold",
     },

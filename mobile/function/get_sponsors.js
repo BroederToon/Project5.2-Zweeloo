@@ -2,7 +2,7 @@ import { ActivityIndicator, Pressable, Text, View, Linking, Image, } from "react
 import React, { useEffect, useState, useCallback } from "react";
 import { IP } from "@env";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
+import Line from "../components/line";
 import { sponsors as sponsorStyle } from "../styles/sponsor_styles";
 
 /**
@@ -28,6 +28,8 @@ export const GetSponsors = () => {
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     }, [fetchData]);
+    
+    console.log("Loading sponsor data");
 
     //If the data is still loading return an activityindicator
     if (isLoading) {
@@ -84,6 +86,7 @@ export const GetSponsors = () => {
                         </Pressable>
                     </View>
                 </View>
+            <Line />
             </React.Fragment>
         );
     });

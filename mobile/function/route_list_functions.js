@@ -10,6 +10,7 @@ import {
 import { Pressable, Text, View, ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { IP } from "@env";
+import Line from "../components/line";
 
 /**
  * @returns the retrieved content and the styling
@@ -32,7 +33,10 @@ export const GetRouteInformation = (apiCallParameter) => {
         const json = await response.json();
 
         setData(json);
+        console.log(json);
     }, []);
+
+    console.log("Loading routes");
 
     //useEffect is a react function which is immediately used
     //it's called everytime there is new data, but also instantly sends data
@@ -66,7 +70,7 @@ export const GetRouteInformation = (apiCallParameter) => {
         results.push(
             <React.Fragment key={route.id}>
                 <View style={card.layout}>
-                    <View style={styles.inlineIconText}>
+                    <View style={card.titleHolder}>
                         <MaterialCommunityIcons
                             name="walk"
                             size={30}
@@ -76,48 +80,48 @@ export const GetRouteInformation = (apiCallParameter) => {
                             {route.name}
                         </Text>
                     </View>
-                    <View style={styles.inlineIconText} ellipsizeMode="head">
+                    <View style={card.titleHolder} ellipsizeMode="head">
                         <Feather name="info" size={30} color="black" />
                         <Text style={card.routeSubTitle} numberOfLines={1}>
                             {route.extra}
                         </Text>
                     </View>
-                    <View style={styles.inlineIconText}>
+                    <View style={card.titleHolder}>
                         <Entypo name="direction" size={30} color="black" />
                         <Text style={card.routeSubTitle}>{route.distance}</Text>
                     </View>
-                    <View style={card.bottomLayout} />
+                    <View style={card.line} />
                     <Text style={card.routeText} numberOfLines={6}>
                         {route.description}
                     </Text>
-                    <View style={styles.inlineIconText}>
-                        <View
-                            style={{
-                                width: "100%",
-                                justifyContent: "space-between",
-                                flexDirection: "row",
-                            }}
+                    <View
+                        style={{
+                            width: "100%",
+                            justifyContent: "space-between",
+                            flexDirection: "row",
+                        }}
+                    >
+                        <Pressable style={card.infoButton}>
+                            <Ionicons
+                                name="information"
+                                size={24}
+                                color="black"
+                            />
+                        </Pressable>
+                        <Pressable
+                            style={card.cardButton}
+                            onPress={() =>
+                                nav.navigate("SeeRoute", {
+                                    name: route.name,
+                                    routeId: route.id,
+                                })
+                            }
                         >
-                            <Pressable style={card.infoButton}>
-                                <Ionicons
-                                    name="information"
-                                    size={24}
-                                    color="black"
-                                />
-                            </Pressable>
-                            <Pressable
-                                style={card.cardButton}
-                                onPress={() =>
-                                    nav.navigate("SeeRoute", {
-                                        routeId: route.id,
-                                    })
-                                }
-                            >
-                                <Text>ZIE ROUTE</Text>
-                            </Pressable>
-                        </View>
+                            <Text>ZIE ROUTE</Text>
+                        </Pressable>
                     </View>
                 </View>
+                <Line />
             </React.Fragment>
         );
     });
