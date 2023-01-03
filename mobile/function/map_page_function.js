@@ -2,7 +2,7 @@ import { Text, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MapView, { Geojson, Marker } from "react-native-maps";
 import { map } from "../styles/map_page_styles";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { IP } from "@env";
 
@@ -17,21 +17,15 @@ const GetMapPage = (routeId, hasLocation) => {
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
-    //fetch the data and catch errors
+    //useEffect function which instantly activates code
     useEffect(() => {
-        fetchData()
+        //call the api, set the response to json and put the json in setData
+        fetch(`${IP}/api/routes/route/${routeId}`)
+            .then((response) => response.json())
+            .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, [fetchData]);
-
-    //Fetching the data from the api.
-    const fetchData = useCallback(async () => {
-        const response = await fetch(`${IP}/api/routes/route/${routeId}`);
-
-        const json = await response.json();
-        setData(json);
-        console.log(json);
-    }, []);
+    });
 
     //go to the poi page with the given id.
     const onMarkerClick = (name, id) => {
@@ -68,7 +62,9 @@ const GetMapPage = (routeId, hasLocation) => {
                         latitude: parseFloat(data.poi[i].lat),
                         longitude: parseFloat(data.poi[i].lon),
                     }}
-                    onPress={() => onMarkerClick(data.poi[i].name, data.poi[i].id)}
+                    onPress={() =>
+                        onMarkerClick(data.poi[i].name, data.poi[i].id)
+                    }
                 >
                     <Image
                         style={map.logo}
