@@ -3,13 +3,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./screens/Home";
 import Route_type_page from "./screens/route_type_page";
-import Information_page from "./screens/information_page";
+import InformationPage from "./screens/information_page";
 import Option_page from "./screens/option_page";
 import Route_list from "./screens/route_list";
 import PointOfInterestInfoPage from "./screens/poi_info_page";
 import MapPage from "./screens/map_page";
 import SeeRoutePage from "./screens/see_route_page";
 import SponsorPage from "./screens/sponsors";
+import AppInfoPage from "./screens/aboutApp";
+import OrgInfoPage from "./screens/aboutOgranisation";
 import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
@@ -56,7 +58,7 @@ export const BaseNavigator = () => (
         />
         <Tab.Screen
             name="Information"
-            component={Information_page}
+            component={InformationPage}
             options={{
                 headerShown: false,
                 tabBarIcon: ({ color, focused }) => (
@@ -120,6 +122,16 @@ const AppNavigator = () => (
         <Stack.Screen
             name="SponsorPage"
             component={SponsorPage}
+            options={{ headerShown: false }}
+        />
+        <Stack.Screen
+            name="AppInfoPage"
+            component={AppInfoPage}
+            options={{ headerShown: false }}
+        />
+        <Stack.Screen
+            name="OrgInfoPage"
+            component={OrgInfoPage}
             options={{ headerShown: false }}
         />
     </Stack.Navigator>

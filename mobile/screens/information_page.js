@@ -1,15 +1,17 @@
 import { Text, View, Pressable } from "react-native";
 import { styles } from "../styles/basic_styles";
+import { infoStyles } from "../styles/info_styles";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 import Border from "../components/border";
 import Header from "../components/header";
 
 /**
  * The information page of the app
- * @implements the basic styles and useNavigation
+ * @implements the basic and info styles and useNavigation
  * @returns the information page
  */
-const Information_page = () => {
+const InformationPage = () => {
     const nav = useNavigation();
     return (
         <View style={styles.layout}>
@@ -17,14 +19,43 @@ const Information_page = () => {
             <Header pageName="Informatie" />
             <View style={styles.body}>
                 <Pressable
-                    style={{ width: 100, height: 50 }}
+                    style={infoStyles.btn}
+                    onPress={() => nav.navigate("AppInfoPage")}
+                >
+                    <Ionicons
+                        name="information-circle"
+                        size={50}
+                        color="#333333"
+                    />
+                    <Text style={infoStyles.btnTxt}>Over de app &gt;</Text>
+                </Pressable>
+                <Pressable
+                    style={infoStyles.btn}
+                    onPress={() => nav.navigate("OrgInfoPage")}
+                >
+                    <Ionicons
+                        name="information-circle"
+                        size={50}
+                        color="#333333"
+                    />
+                    <Text style={infoStyles.btnTxt}>
+                        Over de stichting &gt;
+                    </Text>
+                </Pressable>
+                <Pressable
+                    style={infoStyles.btn}
                     onPress={() => nav.navigate("SponsorPage")}
                 >
-                    <Text>Zie sponsoren</Text>
+                    <Ionicons
+                        name="information-circle"
+                        size={50}
+                        color="#333333"
+                    />
+                    <Text style={infoStyles.btnTxt}>Sponsoren &gt;</Text>
                 </Pressable>
             </View>
         </View>
     );
 };
 
-export default Information_page;
+export default InformationPage;

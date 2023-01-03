@@ -10,6 +10,7 @@ export const routeType = StyleSheet.create({
         height: 250,
         borderWidth: 3,
         borderRadius: 10,
+        borderColor: "#333333",
         width: "40%",
         margin: 10,
         alignItems: "center",
@@ -20,6 +21,7 @@ export const routeType = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         height: "30%",
+        color: "#333333",
     },
     // Icon in the button
     icon: {

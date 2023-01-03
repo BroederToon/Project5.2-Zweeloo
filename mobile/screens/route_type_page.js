@@ -32,7 +32,7 @@ const Route_type_page = () => {
                         <Ionicons
                             name="bicycle"
                             size={105}
-                            color="black"
+                            color="#333333"
                             style={routeType.icon}
                         />
 
@@ -52,7 +52,7 @@ const Route_type_page = () => {
                         <FontAwesome5
                             name="walking"
                             size={90}
-                            color="black"
+                            color="#333333"
                             style={routeType.icon}
                         />
                         <Text style={routeType.buttonText}>Wandelroutes</Text>

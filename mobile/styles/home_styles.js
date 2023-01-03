@@ -49,6 +49,7 @@ export const home = StyleSheet.create({
         width: "60%",
         borderWidth: 3,
         borderRadius: 10,
+        borderColor: "#333333",
         backgroundColor: "transparent",
         alignItems: "center",
         justifyContent: "center",
@@ -61,5 +62,6 @@ export const home = StyleSheet.create({
         fontSize: 20,
         marginLeft: 10,
         marginVertical: 10,
+        color: "#333333",
     },
 });

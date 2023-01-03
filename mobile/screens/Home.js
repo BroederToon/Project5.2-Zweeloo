@@ -38,7 +38,7 @@ const Home = () => {
                             nav.navigate("Routes");
                         }}
                     >
-                        <Ionicons name="send" size={25} color="black" />
+                        <Ionicons name="send" size={25} color="#333333" />
                         <Text style={home.startBtnText}>Start Route</Text>
                     </Pressable>
                 </View>
