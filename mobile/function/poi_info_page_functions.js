@@ -1,5 +1,5 @@
 import { poiInfo } from "../styles/poi_page_styles";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { Text, View, Image, ActivityIndicator, Pressable } from "react-native";
 import { IP } from "@env";
@@ -14,22 +14,15 @@ export const showPoiInfo = (poiId) => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
-    //function fetchData which returns en sets the data of the called API
-    const fetchData = useCallback(async () => {
-        const response = await fetch(`${IP}/api/poi/${poiId}`);
-
-        const json = await response.json();
-
-        setData(json);
-        console.log(json);
-    }, []);
-
-    //use the fetchData and check on the errors within and then call it
+    //useEffect function which instantly activates code
     useEffect(() => {
-        fetchData()
+        //call the api, set the response to json and put the json in setData
+        fetch(`${IP}/api/poi/${poiId}`)
+            .then((response) => response.json())
+            .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, [fetchData]);
+    });
 
     //check whether it's stil loading
     if (isLoading) {
@@ -82,7 +75,11 @@ export const showPoiInfo = (poiId) => {
                 }}
             >
                 <Feather name="volume-2" size={30} color="black" />
-                <Text style={{marginLeft: 5, textDecorationLine:"underline"}}>Lees voor</Text>
+                <Text
+                    style={{ marginLeft: 5, textDecorationLine: "underline" }}
+                >
+                    Lees voor
+                </Text>
             </Pressable>
             <Text style={{ fontSize: 15, marginTop: 5 }}>
                 {data.description}
