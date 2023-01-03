@@ -1,12 +1,11 @@
-import { Text, View, Pressable } from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "../styles/basic_styles";
-import { useNavigation } from "@react-navigation/native";
 import Border from "../components/border";
 import Header from "../components/header";
 
 /**
  * The app information page
- * @implements the basic styles and useNavigation
+ * @implements the basic styles
  * @returns the information page
  */
 const AppInfoPage = () => {

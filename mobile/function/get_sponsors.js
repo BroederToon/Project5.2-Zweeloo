@@ -5,6 +5,7 @@ import {
     View,
     Linking,
     Image,
+    Alert,
 } from "react-native";
 import React, { useEffect, useState, useCallback } from "react";
 import { IP } from "@env";
@@ -86,15 +87,24 @@ export const GetSponsors = () => {
                         <Pressable
                             style={sponsorStyle.button}
                             onPress={async () => {
-                                if(!sponsor.link.includes("http://") && !sponsor.link.includes("https://")){
+                                // Sanitize the url
+                                if (
+                                    !sponsor.link.includes("http://") &&
+                                    !sponsor.link.includes("https://")
+                                ) {
                                     sponsor.link = "https://" + sponsor.link;
                                 }
-                                // Validate url
-                                const supported = await Linking.canOpenURL(sponsor.link);
+
+                                //Validate url
+                                const supported = await Linking.canOpenURL(
+                                    sponsor.link
+                                );
                                 if (supported) {
                                     await Linking.openURL(sponsor.link);
                                 } else {
-                                    console.error("Could not open url: "+sponsor.link);
+                                    Alert.alert(
+                                        `Cannot open link: ${sponsor.link}`
+                                    );
                                 }
                             }}
                         >

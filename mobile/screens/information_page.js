@@ -18,14 +18,7 @@ const InformationPage = () => {
             <Border />
             <Header pageName="Informatie" />
             <View style={styles.body}>
-                <View
-                    style={{
-                        width: "80%",
-                        marginTop: 15,
-                        alignItems: "center",
-                        flexDirection: "column",
-                    }}
-                >
+                <View style={infoStyles.buttonHolder}>
                     <Pressable
                         style={infoStyles.btn}
                         onPress={() => nav.navigate("AppInfoPage")}

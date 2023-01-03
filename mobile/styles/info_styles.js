@@ -1,7 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export const infoStyles = StyleSheet.create({
-    // Main layout
+    // Info page button holder
+    buttonHolder: {
+        width: "80%",
+        marginTop: 15,
+        alignItems: "center",
+        flexDirection: "column",
+    },
+    // Info menu buttons
     btn: {
         width: "100%",
         justifyContent: "flex-start",
@@ -19,5 +26,5 @@ export const infoStyles = StyleSheet.create({
         fontWeight: "700",
         textTransform: "uppercase",
         color: "#333333",
-    }
+    },
 });
