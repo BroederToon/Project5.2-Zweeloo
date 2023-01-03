@@ -17,8 +17,9 @@ const GetMapPage = (routeId, hasLocation) => {
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
 
-    //fetch the data from the api and catch errors
+    //useEffect function which instantly activates code
     useEffect(() => {
+        //call the api, set the response to json and put the json in setData
         fetch(`${IP}/api/routes/route/${routeId}`)
             .then((response) => response.json())
             .then((json) => setData(json))
