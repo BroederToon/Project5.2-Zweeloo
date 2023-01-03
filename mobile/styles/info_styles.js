@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const infoStyles = StyleSheet.create({
     // Main layout
     btn: {
-        width: "80%",
+        width: "100%",
         justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "row",

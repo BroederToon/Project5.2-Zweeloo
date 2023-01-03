@@ -18,41 +18,50 @@ const InformationPage = () => {
             <Border />
             <Header pageName="Informatie" />
             <View style={styles.body}>
-                <Pressable
-                    style={infoStyles.btn}
-                    onPress={() => nav.navigate("AppInfoPage")}
+                <View
+                    style={{
+                        width: "80%",
+                        marginTop: 15,
+                        alignItems: "center",
+                        flexDirection: "column",
+                    }}
                 >
-                    <Ionicons
-                        name="information-circle"
-                        size={50}
-                        color="#333333"
-                    />
-                    <Text style={infoStyles.btnTxt}>Over de app &gt;</Text>
-                </Pressable>
-                <Pressable
-                    style={infoStyles.btn}
-                    onPress={() => nav.navigate("OrgInfoPage")}
-                >
-                    <Ionicons
-                        name="information-circle"
-                        size={50}
-                        color="#333333"
-                    />
-                    <Text style={infoStyles.btnTxt}>
-                        Over de stichting &gt;
-                    </Text>
-                </Pressable>
-                <Pressable
-                    style={infoStyles.btn}
-                    onPress={() => nav.navigate("SponsorPage")}
-                >
-                    <Ionicons
-                        name="information-circle"
-                        size={50}
-                        color="#333333"
-                    />
-                    <Text style={infoStyles.btnTxt}>Sponsoren &gt;</Text>
-                </Pressable>
+                    <Pressable
+                        style={infoStyles.btn}
+                        onPress={() => nav.navigate("AppInfoPage")}
+                    >
+                        <Ionicons
+                            name="information-circle"
+                            size={50}
+                            color="#333333"
+                        />
+                        <Text style={infoStyles.btnTxt}>Over de app &gt;</Text>
+                    </Pressable>
+                    <Pressable
+                        style={infoStyles.btn}
+                        onPress={() => nav.navigate("OrgInfoPage")}
+                    >
+                        <Ionicons
+                            name="information-circle"
+                            size={50}
+                            color="#333333"
+                        />
+                        <Text style={infoStyles.btnTxt}>
+                            Over de stichting &gt;
+                        </Text>
+                    </Pressable>
+                    <Pressable
+                        style={infoStyles.btn}
+                        onPress={() => nav.navigate("SponsorPage")}
+                    >
+                        <Ionicons
+                            name="information-circle"
+                            size={50}
+                            color="#333333"
+                        />
+                        <Text style={infoStyles.btnTxt}>Sponsoren &gt;</Text>
+                    </Pressable>
+                </View>
             </View>
         </View>
     );
