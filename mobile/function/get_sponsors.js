@@ -1,4 +1,12 @@
-import { ActivityIndicator, Pressable, Text, View, Linking, Image, } from "react-native";
+import {
+    ActivityIndicator,
+    Pressable,
+    Text,
+    View,
+    Linking,
+    Image,
+    Alert,
+} from "react-native";
 import React, { useEffect, useState, useCallback } from "react";
 import { IP } from "@env";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -28,7 +36,7 @@ export const GetSponsors = () => {
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     }, [fetchData]);
-    
+
     console.log("Loading sponsor data");
 
     //If the data is still loading return an activityindicator
@@ -78,7 +86,27 @@ export const GetSponsors = () => {
                     <View style={sponsorStyle.buttonHolder}>
                         <Pressable
                             style={sponsorStyle.button}
-                            onPress={() => Linking.openURL(sponsor.link)}
+                            onPress={async () => {
+                                // Sanitize the url
+                                if (
+                                    !sponsor.link.includes("http://") &&
+                                    !sponsor.link.includes("https://")
+                                ) {
+                                    sponsor.link = "https://" + sponsor.link;
+                                }
+
+                                //Validate url
+                                const supported = await Linking.canOpenURL(
+                                    sponsor.link
+                                );
+                                if (supported) {
+                                    await Linking.openURL(sponsor.link);
+                                } else {
+                                    Alert.alert(
+                                        `Cannot open link: ${sponsor.link}`
+                                    );
+                                }
+                            }}
                         >
                             <Text style={sponsorStyle.buttonTxt}>
                                 Ga naar website
@@ -86,7 +114,7 @@ export const GetSponsors = () => {
                         </Pressable>
                     </View>
                 </View>
-            <Line />
+                <Line />
             </React.Fragment>
         );
     });
