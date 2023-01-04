@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./screens/Home";
+import Home from "./screens/home";
 import Route_type_page from "./screens/route_type_page";
 import InformationPage from "./screens/information_page";
 import Option_page from "./screens/option_page";
@@ -10,8 +10,8 @@ import PointOfInterestInfoPage from "./screens/poi_info_page";
 import MapPage from "./screens/map_page";
 import SeeRoutePage from "./screens/see_route_page";
 import SponsorPage from "./screens/sponsors";
-import AppInfoPage from "./screens/aboutApp";
-import OrgInfoPage from "./screens/aboutOgranisation";
+import AppInfoPage from "./screens/about_app";
+import OrgInfoPage from "./screens/about_ogranisation";
 import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
