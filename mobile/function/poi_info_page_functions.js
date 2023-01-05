@@ -1,8 +1,10 @@
 import { poiInfo } from "../styles/poi_page_styles";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Feather } from "@expo/vector-icons";
 import { Text, View, Image, ActivityIndicator, Pressable } from "react-native";
 import { IP } from "@env";
+import { Audio, FileSystem } from "expo-av";
+import base64 from "react-native-base64";
 
 /**
  * This function shows all the information once a user has clicked
@@ -11,6 +13,7 @@ import { IP } from "@env";
  * @returns The info of the clicked poi and the images and audio source
  */
 export const showPoiInfo = (poiId) => {
+    const [sound, setSound] = useState();
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -22,7 +25,26 @@ export const showPoiInfo = (poiId) => {
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    });
+
+        return sound
+            ? () => {
+                  console.log("Unloading Sound");
+                  sound.unloadAsync();
+              }
+            : undefined;
+    }, [sound]);
+
+    async function playSound() {
+        console.log("Loading Sound");
+        const { sound } = await Audio.Sound.createAsync({
+            uri: `data:audio/mp3;base64,${data.audio_src}`,
+        });
+
+        setSound(sound);
+
+        console.log("Playing Sound");
+        await sound.playAsync();
+    }
 
     //check whether it's stil loading
     if (isLoading) {
@@ -43,6 +65,7 @@ export const showPoiInfo = (poiId) => {
      * @returns the images or return nothing
      */
     const showPoiImage = () => {
+        // console.log(data);
         if (data.poi_img.length > 0) {
             let myImages = [];
             for (let i = 0; i < data.poi_img.length; i++) {
@@ -73,6 +96,7 @@ export const showPoiInfo = (poiId) => {
                     flexDirection: "row",
                     alignItems: "center",
                 }}
+                onPress={playSound}
             >
                 <Feather name="volume-2" size={30} color="black" />
                 <Text

@@ -1,5 +1,5 @@
 import { card } from "../styles/route_card_styles";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
     Feather,
     Entypo,

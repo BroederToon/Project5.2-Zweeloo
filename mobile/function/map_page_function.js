@@ -2,7 +2,7 @@ import { Text, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MapView, { Geojson, Marker } from "react-native-maps";
 import { map } from "../styles/map_page_styles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { StatusBar } from "expo-status-bar";
 import { IP } from "@env";
 
