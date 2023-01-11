@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { Text, View, Image, ActivityIndicator, Pressable } from "react-native";
 import { IP } from "@env";
+import { Audio } from "expo-av";
 
 /**
  * This function shows all the information once a user has clicked
@@ -11,6 +12,7 @@ import { IP } from "@env";
  * @returns The info of the clicked poi and the images and audio source
  */
 export const showPoiInfo = (poiId) => {
+    const [sound, setSound] = useState();
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -22,7 +24,27 @@ export const showPoiInfo = (poiId) => {
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    });
+
+        return sound
+            ? () => {
+                  console.log("Unloading Sound");
+                  sound.unloadAsync();
+              }
+            : undefined;
+    }, []);
+
+    const PlaySound = async () => {
+        console.log("Loading Sound");
+
+        const { sound } = await Audio.Sound.createAsync({
+            uri: `data:audio/mp3;base64,${data.audio_src}`,
+        });
+
+        setSound(sound);
+
+        console.log("Playing Sound");
+        sound.playAsync();
+    };
 
     //check whether it's stil loading
     if (isLoading) {
@@ -73,6 +95,7 @@ export const showPoiInfo = (poiId) => {
                     flexDirection: "row",
                     alignItems: "center",
                 }}
+                onPress={PlaySound}
             >
                 <Feather name="volume-2" size={30} color="black" />
                 <Text
