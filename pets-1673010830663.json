@@ -1,0 +1,14 @@
+[
+  {
+    "color": "red",
+    "type": "fox",
+    "size": "medium",
+    "name": "Binx"
+  },
+  {
+    "color": "white",
+    "type": "fox",
+    "size": "medium",
+    "name": "Mars"
+  }
+]

@@ -5,6 +5,7 @@ import { map } from "../styles/map_page_styles";
 import { useEffect, useState, useCallback } from "react";
 import { StatusBar } from "expo-status-bar";
 import { IP } from "@env";
+import { Audio } from "expo-av";
 
 /**
  * routeId for the id of the route that you want to show.
@@ -14,18 +15,112 @@ import { IP } from "@env";
  */
 const GetMapPage = (routeId, hasLocation) => {
     const nav = useNavigation();
+    const [isPlaying, setPlaying] = useState(false);
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
+
+    // const fetchData = useCallback(async () => {
+    //     let response = await fetch(`${IP}/api/routes/route/${routeId}`);
+
+    //     let json = response.json();
+
+    //     setData(json);
+    // });
 
     //useEffect function which instantly activates code
     useEffect(() => {
         //call the api, set the response to json and put the json in setData
+        // fetch(`${IP}/api/routes/route/${routeId}`)
+        //     .then((response) => response.json())
+        //     .then((json) => setData(json))
+        // fetchData()
         fetch(`${IP}/api/routes/route/${routeId}`)
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     });
+
+    const checkRange = (userLocation) => {
+        console.log("hallo");
+        data.poi.forEach((poi) => {
+            const poiLat = parseFloat(poi.lat);
+            const poiLon = parseFloat(poi.lon);
+            const userLat = userLocation.latitude;
+            const userLon = userLocation.longitude;
+            const checkDist = distanceBetween2Points(
+                poiLat,
+                userLat,
+                poiLon,
+                userLon
+            );
+
+            let myAudio;
+            if (checkDist < poi.radius) {
+                if (!isPlaying) {
+                    myAudio = playSound(poi.id);
+                    setPlaying(true);
+                }
+            }
+
+            if (myAudio) {
+                // myAudio.getStatusAsync().then((result) => {
+                //     console.log(result);
+                // });
+                // audio.getStatusAsync().then((result) => {
+                //     console.log(result.didJustFinish);
+                // });
+            }
+
+            // if (sound) {
+            // playSound(poi.id)
+            //     .getStatusAsync()
+            //     .then((result) => {
+            //         // console.log(result.didJustFinish);
+            //         if (result.didJustFinish) {
+            //             setPlaying(false);
+            //             sound.unloadAsync();
+            //         }
+            //     });
+            // }
+
+            // else {
+            //     if (isPlaying) {
+            //         console.log("to close");
+            //         playSound(poi.id, checkDist, poi.radius);
+            //         setPlaying(false);
+            //     }
+            // }
+        });
+    };
+
+    const distanceBetween2Points = (lat1, lat2, lon1, lon2) => {
+        const R = 6371e3; // metres
+        const φ1 = (lat1 * Math.PI) / 180; // φ, λ in radians
+        const φ2 = (lat2 * Math.PI) / 180;
+        const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+        const Δλ = ((lon2 - lon1) * Math.PI) / 180;
+
+        const a =
+            Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+            Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        const d = R * c; // in metres
+        return d;
+    };
+
+    const playSound = async (poiId) => {
+        let response = await fetch(`${IP}/api/poi/${poiId}`);
+        let json = await response.json();
+
+        const { sound } = await Audio.Sound.createAsync({
+            uri: `data:audio/mp3;base64,${json.audio_src}`,
+        });
+
+        console.log("Playing Sound");
+        await sound.playAsync();
+    };
 
     //go to the poi page with the given id.
     const onMarkerClick = (name, id) => {
@@ -104,6 +199,9 @@ const GetMapPage = (routeId, hasLocation) => {
             style={map.mapView}
             showsUserLocation={hasLocation}
             showsMyLocationButton={hasLocation}
+            onUserLocationChange={(locationChangedResult) =>
+                checkRange(locationChangedResult.nativeEvent.coordinate)
+            }
             initialRegion={{
                 latitude: data.route.features[0].geometry.coordinates[0][1],
                 longitude: data.route.features[0].geometry.coordinates[0][0],

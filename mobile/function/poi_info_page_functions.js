@@ -1,10 +1,9 @@
 import { poiInfo } from "../styles/poi_page_styles";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { Text, View, Image, ActivityIndicator, Pressable } from "react-native";
 import { IP } from "@env";
-import { Audio, FileSystem } from "expo-av";
-import base64 from "react-native-base64";
+import { Audio } from "expo-av";
 
 /**
  * This function shows all the information once a user has clicked
@@ -32,10 +31,11 @@ export const showPoiInfo = (poiId) => {
                   sound.unloadAsync();
               }
             : undefined;
-    }, [sound]);
+    }, []);
 
-    async function playSound() {
+    const PlaySound = async () => {
         console.log("Loading Sound");
+
         const { sound } = await Audio.Sound.createAsync({
             uri: `data:audio/mp3;base64,${data.audio_src}`,
         });
@@ -43,8 +43,8 @@ export const showPoiInfo = (poiId) => {
         setSound(sound);
 
         console.log("Playing Sound");
-        await sound.playAsync();
-    }
+        sound.playAsync();
+    };
 
     //check whether it's stil loading
     if (isLoading) {
@@ -65,7 +65,6 @@ export const showPoiInfo = (poiId) => {
      * @returns the images or return nothing
      */
     const showPoiImage = () => {
-        // console.log(data);
         if (data.poi_img.length > 0) {
             let myImages = [];
             for (let i = 0; i < data.poi_img.length; i++) {
@@ -96,7 +95,7 @@ export const showPoiInfo = (poiId) => {
                     flexDirection: "row",
                     alignItems: "center",
                 }}
-                onPress={playSound}
+                onPress={PlaySound}
             >
                 <Feather name="volume-2" size={30} color="black" />
                 <Text

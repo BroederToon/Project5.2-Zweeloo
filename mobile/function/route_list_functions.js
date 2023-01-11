@@ -24,10 +24,26 @@ export const GetRouteInformation = (apiCallParameter) => {
     const [data, setData] = useState([]);
     const nav = useNavigation();
 
+    // const fetchData = useCallback(async () => {
+    //     const response = await fetch(`${IP}/api/routes/${apiCallParameter}`);
+    //     console.log(response.json());
+
+    //     let json = response.json();
+    //     // console.log(json);
+
+    //     setData(json);
+    // }, [IP, apiCallParameter]);
+
+    // console.log(data);
+
     //useEffect is a react function which is immediately used
     //it's called everytime there is new data, but also instantly sends data
     useEffect(() => {
         //call fetch data and show the error if it is has errors and setLoading to false
+        // .then((response) => response.json())
+        //     .then((json) => setData(json))
+
+        // fetchData()
         fetch(`${IP}/api/routes/${apiCallParameter}`)
             .then((response) => response.json())
             .then((json) => setData(json))
