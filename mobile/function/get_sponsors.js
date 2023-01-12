@@ -27,7 +27,7 @@ export const GetSponsors = () => {
         fetchData()
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, [fetchData]);
+    }, []);
     
     console.log("Loading sponsor data");
 

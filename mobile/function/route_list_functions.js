@@ -49,7 +49,7 @@ export const GetRouteInformation = (apiCallParameter) => {
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    });
+    }, []);
 
     //if true return loadscreen at the top
     if (isLoading) {

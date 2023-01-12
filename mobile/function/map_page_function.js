@@ -18,6 +18,7 @@ const GetMapPage = (routeId, hasLocation) => {
     const [isPlaying, setPlaying] = useState(false);
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
+    const [lastCheck, setLastCheck] = useState(true);
 
     // const fetchData = useCallback(async () => {
     //     let response = await fetch(`${IP}/api/routes/route/${routeId}`);
@@ -29,69 +30,84 @@ const GetMapPage = (routeId, hasLocation) => {
 
     //useEffect function which instantly activates code
     useEffect(() => {
-        //call the api, set the response to json and put the json in setData
-        // fetch(`${IP}/api/routes/route/${routeId}`)
-        //     .then((response) => response.json())
-        //     .then((json) => setData(json))
-        // fetchData()
         fetch(`${IP}/api/routes/route/${routeId}`)
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    });
+        console.log("call");
+
+        setLastCheck(Date.now());
+
+        // const interval = setInterval(() => {
+        //     console.log("This will run every second!");
+        // }, 1000);
+        // return () => clearInterval(interval);
+    }, []);
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       console.log('This will run every second!');
+    //     }, 1000);
+    //     return () => clearInterval(interval);
+    //   }, []);
 
     const checkRange = (userLocation) => {
-        console.log("hallo");
-        data.poi.forEach((poi) => {
-            const poiLat = parseFloat(poi.lat);
-            const poiLon = parseFloat(poi.lon);
-            const userLat = userLocation.latitude;
-            const userLon = userLocation.longitude;
-            const checkDist = distanceBetween2Points(
-                poiLat,
-                userLat,
-                poiLon,
-                userLon
-            );
+        // Check every 5 seconds
+        if (Date.now() > lastCheck + 5000) {
+            setLastCheck(Date.now());
+            // console.log("Now");
 
-            let myAudio;
-            if (checkDist < poi.radius) {
+            data.poi.forEach((poi) => {
+                //Calculate the distance between the current user location and the poi location
+                const checkDist = distanceBetween2Points(
+                    parseFloat(poi.lat),
+                    userLocation.latitude,
+                    parseFloat(poi.lon),
+                    userLocation.longitude
+                );
+
+                if (checkDist > poi.radius) return;
+
+                let myAudio;
                 if (!isPlaying) {
                     myAudio = playSound(poi.id);
                     setPlaying(true);
                 }
-            }
+                
 
-            if (myAudio) {
-                // myAudio.getStatusAsync().then((result) => {
-                //     console.log(result);
-                // });
-                // audio.getStatusAsync().then((result) => {
-                //     console.log(result.didJustFinish);
-                // });
-            }
+                if (myAudio) {
+                    console.log(myAudio);
+                    // console.log(myAudio.getStatusAsync());
+                    myAudio.getStatusAsync().then((result) => {
+                        console.log(result);
+                    });
+                    // audio.getStatusAsync().then((result) => {
+                    //     console.log(result.didJustFinish);
+                    // });
+                }
 
-            // if (sound) {
-            // playSound(poi.id)
-            //     .getStatusAsync()
-            //     .then((result) => {
-            //         // console.log(result.didJustFinish);
-            //         if (result.didJustFinish) {
-            //             setPlaying(false);
-            //             sound.unloadAsync();
-            //         }
-            //     });
-            // }
+                // if (sound) {
+                // playSound(poi.id)
+                //     .getStatusAsync()
+                //     .then((result) => {
+                //         // console.log(result.didJustFinish);
+                //         if (result.didJustFinish) {
+                //             setPlaying(false);
+                //             sound.unloadAsync();
+                //         }
+                //     });
+                // }
 
-            // else {
-            //     if (isPlaying) {
-            //         console.log("to close");
-            //         playSound(poi.id, checkDist, poi.radius);
-            //         setPlaying(false);
-            //     }
-            // }
-        });
+                // else {
+                //     if (isPlaying) {
+                //         console.log("to close");
+                //         playSound(poi.id, checkDist, poi.radius);
+                //         setPlaying(false);
+                //     }
+                // }
+            });
+        }
     };
 
     const distanceBetween2Points = (lat1, lat2, lon1, lon2) => {
