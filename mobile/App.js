@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./screens/home";
+import Home from "./screens/Home";
 import Route_type_page from "./screens/route_type_page";
 import InformationPage from "./screens/information_page";
 import Option_page from "./screens/option_page";
