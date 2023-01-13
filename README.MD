@@ -9,9 +9,9 @@ This project runs with Nodejs, Expo and NPM. You can download NodeJS and NPM (co
 ## Installation
 
 1. Make sure you have read and meet the requirements.
-2. Make sure that the [Route editor](https://github.com/Yannieck/Project5.2-Zweeloo-Web), has been done first.
+2. Make sure that the [Route editor](https://github.com/Yannieck/Project5.2-Zweeloo-Web), has been setup first.
 3. Clone this repository to your local machine.
-4. Make sure your MySQL and Apache servers are running.
+4. Make sure your MySQL, Apache and the web server is running.
 5. Open the terminal and CD into the root folder of this project.
 6. type in the following command in the terminal
 
@@ -20,13 +20,13 @@ npm i
 ```
 
 7. Add a new file called `.env` to the root folder.
-8. Add the content to the .env file following the [.env-template](#env-template).
+8. Add the content to the `.env` file following the [.env-template](#env-template).
 
 > If you are pulling new commits, make sure you have the latest version of the project by running the install command again.
 
 ## Release
 
-There are a couple of things that need to be done before the release. There are a couple of steps that need to be done, in order to release the expo app on android and playstore by following the steps on [expo](https://docs.expo.dev/build/setup/). The app also needs to request the users location, this needs permission from the play store. More information about the use of [location permission](https://support.google.com/googleplay/android-developer/answer/9799150?hl=en).
+There are a couple of things that need to be done before the release. In order to release the expo app on android and playstore by following the steps on [expo](https://docs.expo.dev/build/setup/). The app also needs to request the users location, this needs permission from the play store. More information about the use of [background permission](https://support.google.com/googleplay/android-developer/answer/9799150?hl=en).
 
 ## Stakeholders
 
