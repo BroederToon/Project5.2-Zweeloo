@@ -24,6 +24,14 @@ npm i
 
 > If you are pulling new commits, make sure you have the latest version of the project by running the install command again.
 
+## Running
+
+In order to run the application, the user needs to type in the following command in the terminal.
+
+```shell
+npx expo start
+```
+
 ## Release
 
 There are a couple of things that need to be done before the release. In order to release the expo app on android and playstore by following the steps on [expo](https://docs.expo.dev/build/setup/). The app also needs to request the users location, this needs permission from the play store. More information about the use of [background permission](https://support.google.com/googleplay/android-developer/answer/9799150?hl=en).
