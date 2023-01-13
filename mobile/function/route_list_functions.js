@@ -88,7 +88,7 @@ export const GetRouteInformation = (apiCallParameter) => {
                             flexDirection: "row",
                         }}
                     >
-                        <Pressable style={card.infoButton}>
+                        <Pressable style={card.infoButton} disabled={true}>
                             <Ionicons
                                 name="information"
                                 size={24}

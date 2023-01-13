@@ -20,22 +20,7 @@ const AppInfoPage = () => {
                         heigth: "100%",
                     }}
                 >
-                    Irure occaecat id aliqua aliquip nulla laboris proident
-                    exercitation qui. Adipisicing laborum quis exercitation
-                    dolor magna minim qui. Incididunt esse consectetur et
-                    nostrud ipsum exercitation pariatur deserunt veniam. Officia
-                    cillum ipsum est velit eu est eu laboris enim est amet non
-                    commodo quis.
-                    {"\n\n"}
-                    Adipisicing fugiat commodo id magna aliqua
-                    enim sit cillum qui elit. Culpa cillum eiusmod occaecat
-                    incididunt aute aliquip nisi sit quis qui aliqua minim
-                    minim. Commodo do sint consequat ut labore dolore in.
-                    Ad
-                    {"\n\n"}
-                    sint esse qui veniam dolore elit pariatur adipisicing in
-                    reprehenderit ad dolor. Id nulla eiusmod aute aliqua. Sint
-                    fugiat fugiat nisi dolore elit duis.
+                    Versie: 1.0
                 </Text>
             </View>
         </View>
