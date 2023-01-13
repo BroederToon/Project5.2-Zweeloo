@@ -7,6 +7,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import Header from "../components/header";
 import Border from "../components/border";
+import { useNavigation } from "@react-navigation/native";
 
 /**
  * The page where a user can follow a route
@@ -14,6 +15,7 @@ import Border from "../components/border";
  * @returns the follow route page
  */
 const MapPage = (navigate) => {
+    const nav = useNavigation();
     //Is true, for the user location on the map
     const hasLocation = true;
 
@@ -31,10 +33,7 @@ const MapPage = (navigate) => {
                 >
                     <MaterialIcons name="pause" size={30} color="white" />
                 </Pressable>
-                <Pressable
-                    style={map.stopButton}
-                    onPress={() => console.log("De route gaat stoppen")}
-                >
+                <Pressable style={map.stopButton} onPress={() => nav.goBack()}>
                     <Entypo name="cross" size={30} color="white" />
                 </Pressable>
             </View>

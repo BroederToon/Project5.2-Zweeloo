@@ -20,21 +20,41 @@ const OrgInfoPage = () => {
                         heigth: "100%",
                     }}
                 >
-                    Irure occaecat id aliqua aliquip nulla laboris proident
-                    exercitation qui. Adipisicing laborum quis exercitation
-                    dolor magna minim qui. Incididunt esse consectetur et
-                    nostrud ipsum exercitation pariatur deserunt veniam. Officia
-                    cillum ipsum est velit eu est eu laboris enim est amet non
-                    commodo quis.
-                    {"\n\n"}
-                    Adipisicing fugiat commodo id magna aliqua enim sit cillum
-                    qui elit. Culpa cillum eiusmod occaecat incididunt aute
-                    aliquip nisi sit quis qui aliqua minim minim. Commodo do
-                    sint consequat ut labore dolore in. Ad
-                    {"\n\n"}
-                    sint esse qui veniam dolore elit pariatur adipisicing in
-                    reprehenderit ad dolor. Id nulla eiusmod aute aliqua. Sint
-                    fugiat fugiat nisi dolore elit duis.
+                    Rond 1800 kwamen er al schilders naar Zweeloo en omliggende
+                    esdorpen Aalden, Benneveld, Meppen en Wezup. Waarom? Omdat
+                    het hier zo mooi en ongerept was…
+                    {"\n"}
+                    In de eeuwen daarna volgden er velen, waaronder grote namen
+                    als Max Liebermann en Vincent van Gogh. In 2009 werd Zweeloo
+                    lid van EuroArt, de Europese federatie van
+                    kunstenaarsdorpen, en daarmee officieel een
+                    “kunstenaarsdorp”.
+                    {"\n"}
+                    Om de bijzondere waarden van Zweeloo e.o. voor jong en oud,
+                    inwoner, bezoeker en toerist te behouden en actief uit te
+                    dragen is eind 2012 stichting Kunstenaarsdorp Zweeloo
+                    opgericht, met een verbreding naar kunst in het algemeen.
+                    {"\n"}
+                    Het bijzondere aan Zweeloo is dat veel van wat er indertijd
+                    was en waarvoor kunstenaars kwamen nu nog steeds herkenbaar
+                    aanwezig is.
+                    {"\n"}
+                    Zo is onze “huiskamer”, de kunstenaarsherberg gevestigd in
+                    het pand van bistro Tante Sweel, de voormalige herberg van
+                    Sweel waar o.a. Max Liebermann logeerde. Het veld achter de
+                    herberg is het veld waar hij indertijd zijn beroemde
+                    schilderij De Bleek schilderde. En de boomgaard die daarop
+                    stond is getekend door Vincent van Gogh die op 1 november
+                    1883 naar Zweeloo kwam o.a. om Max Liebermann te ontmoeten.
+                    Daarbij tekende Van Gogh ook het kerkje, dat ook nu nog te
+                    bezoeken is.
+                    {"\n"}
+                    Stichting Kunstenaarsdorp organiseert regelmatig exposities
+                    en diverse andere activiteiten en heeft een aantal wandel-
+                    en fietsroutes ontwikkeld. Neem een kijkje op onze website,
+                    bezoek onze art collection, wordt eventueel vriend om op de
+                    hoogte te blijven. Maar vooral: kom en geniet van wat hier
+                    was en nog steeds is.
                 </Text>
             </View>
         </View>
