@@ -9,9 +9,9 @@ This project runs with Nodejs, Expo and NPM. You can download NodeJS and NPM (co
 ## Installation
 
 1. Make sure you have read and meet the requirements.
-2. Clone this repository to your local machine.
-3. Make sure your MySQL and Apache servers are running.
-4. Create a new database called `skz`. If you use XAMPP you can create it via PHPMyAdmin.
+2. Make sure that the [Route editor](https://github.com/Yannieck/Project5.2-Zweeloo-Web), has been done first.
+3. Clone this repository to your local machine.
+4. Make sure your MySQL and Apache servers are running.
 5. Open the terminal and CD into the root folder of this project.
 6. type in the following command in the terminal
 
@@ -54,7 +54,7 @@ There are a couple of things that need to be done before the release. There are 
 ### .env Template
 
 ```shell
-IP = http://serverAdress:3000
+IP = http://serverAdress
 ```
 
 -   `IP`: the link where the api is called from in order to show the routes and sponsors
